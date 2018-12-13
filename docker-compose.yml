@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+  api:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    command: rails server -b 0.0.0.0
