@@ -15,17 +15,18 @@ class Api::V1::GrantorController < ApplicationController
           "zip": "00890870"
         },
         {
-        "id": 3,
-        "name": "Universidade Mogi",
-        "phone": "1165128021",
-        "zip": "25508901"
+          "id": 3,
+          "name": "Universidade Mogi",
+          "phone": "1165128021",
+          "zip": "25508901"
         },
         {
           "id": 4,
           "name": "International Business Machines - IBM",
           "phone": "1199991111",
           "zip": "04007900"
-        }]
+        }
+      ]
     }
     render json: @grantor
   end
