@@ -4,7 +4,7 @@ class Api::V1::StudentController < ApplicationController
   # 0 = 'Em análise', 1 = 'Deferido',  2 = 'Indeferido' 3 = 'Pendente' (references for status)
   def processes
 		@processes = {
-			[
+			"processes": [
         {
           "id": 1,
           "type": 0,
@@ -37,8 +37,8 @@ class Api::V1::StudentController < ApplicationController
 
   # "student/:id", to "student#student_data"
   def student_data
-    @student_data = { 
-      [ 
+    @student_data = {
+      "studentData": [ 
         {
           "firstName": "Alice",
           "lastName": "Pereira Rodrigues",
@@ -66,7 +66,7 @@ class Api::V1::StudentController < ApplicationController
         }
       ]
     }
-      render json: @student_data
+    render json: @student_data
   end
   
 end
