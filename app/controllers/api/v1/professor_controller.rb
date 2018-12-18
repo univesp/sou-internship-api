@@ -1,7 +1,7 @@
 class Api::V1::ProfessorController < ApplicationController
 	def index
 		@professors = {
-			"professors": [
+			[
 			  {
           "id": 1,
           "name": "Alberto Silva",
@@ -32,7 +32,7 @@ class Api::V1::ProfessorController < ApplicationController
   end
   def show
     @professor = {
-			"professor": [
+			[
 			  {
           "id": 1,
           "name": "Alberto Silva",
