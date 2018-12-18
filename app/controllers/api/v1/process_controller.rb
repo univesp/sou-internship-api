@@ -1,76 +1,46 @@
-class Api::V1::ProcessController < ApplicationController
-	def index
-		@processes = {
-			[
-				{
-					"id": 1,
-					"type": 0,
-					"status": 0,
-					"created_at": "2018-12-17",
-					"student_id": 1,
-					"responsible_id": 1,
-					"grantor_id": 1,
-					"advisor_id": 1,
-					"professor_id": 1,
-					"moderator_name": "Tânia Soares de Souza"
-				},
-				{
-					"id": 2,
-					"type": 0,
-					"status": 0,
-					"created_at": "2018-12-17",
-					"student_id": 1,
-					"responsible_id": 1,
-					"grantor_id": 1,
-					"advisor_id": 1,
-					"professor_id": 1,
-					"moderator_name": "Tânia Soares de Souza"
-				},
-				{
-					"id": 3,
-					"type": 0,
-					"status": 0,
-					"created_at": "2018-12-17",
-					"student_id": 1,
-					"responsible_id": 1,
-					"grantor_id": 1,
-					"advisor_id": 1,
-					"professor_id": 1,
-					"moderator_name": "Rafael da Silva" 
-				},
-				{
-					"id": 4,
-					"type": 0,
-					"status": 0,
-					"created_at": "2018-12-17",
-					"student_id": 1,
-					"responsible_id": 1,
-					"grantor_id": 1,
-					"advisor_id": 1,
-					"professor_id": 1,
-					"moderator_name": "Rafael da Silva" 
-				}
+class Api::V1::ResponsibleController < ApplicationController
+  def index
+    @responsibles = {
+			"responsibles": [
+			  {
+          "id": 1,
+          "name": "Mario Inacio da Fonseca",
+          "phone": ["1112344556","1165566556"],
+          "email": "mario.fonseca@univesp.br"
+        }, 
+        {
+          "id": 2,
+          "name": "Marcos Soares Campos",
+          "phone": ["7122334456","7165443322"],
+          "email": "marcos.campos@univesp.br"
+        },
+        {
+          "id": 3,
+          "name": "Antonio Bandeira Nunes",
+          "phone": ["1165128021","1112085611"],
+          "email": "antonio.nunes@univesp.br"
+        },
+        {
+          "id": 4,
+          "name": "Jack Bauer",
+          "phone": ["1199991111","1111119999"],
+          "email": "jack.bauer@univesp.br"
+        }
 			]
-		}
-		render json: @processes
-	end
-	def show
-		@process = {
-			[
-				{
-					"id": 1,
-					"type": 0,
-					"status": 0,
-					"created_at": "2018-12-17",
-					"student_id": 1,
-					"responsible_id": 1,
-					"grantor_id": 1,
-					"advisor_id": 1,
-					"professor_id": 1,
-					"moderator_name": "Tânia Soares de Souza"
-				}
+    }
+    render json: @responsibles
+  end
+  def show
+    @responsible = {
+			"responsible": [
+			  {
+          "id": 1,
+          "name": "Mario Inacio da Fonseca",
+          "phone": ["1112344556","1165566556"],
+          "email": "mario.fonseca@univesp.br"
+        }
 			]
-		}
-		render json: @process
-	end
+    }
+    render json: @responsible
+  end
 end
