@@ -32,7 +32,7 @@ class Api::V1::ResponsibleController < ApplicationController
   end
   def show
     @responsible = {
-			[
+			"responsible": [
 			  {
           "id": 1,
           "name": "Mario Inacio da Fonseca",
