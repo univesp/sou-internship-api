@@ -1,18 +1,18 @@
 class Api::V1::GrantorController < ApplicationController
   def index
     @grantors = {
-      "grantors": [
+      "institution": [
         {
           "id": 1,
           "name": "Universidade São Paulo",
           "cnpj": "63025530000104",
           "phone": ["1112344556","1165566556"],
           "fax": "7122334456",
-          "zip": "05508900",
-          "address": "Rua da Praça do Relógio",
+          "cep": "05508900",
+          "street": "Rua da Praça do Relógio",
           "number": "109",
           "city": "São Paulo",
-          "state": "São Paulo"
+          "federatedState": "São Paulo"
         }, 
         {
           "id": 2,
@@ -20,11 +20,11 @@ class Api::V1::GrantorController < ApplicationController
           "cnpj": "15180714000104",
           "phone": ["7122334456","7165443322"],
           "fax": "7122334456",
-          "zip": "40110909",
-          "address": "Rua Augusto Viana",
+          "cep": "40110909",
+          "street": "Rua Augusto Viana",
           "number": "S/N",
           "city": "Salvador",
-          "state": "Bahia"
+          "federatedState": "Bahia"
         },
         {
           "id": 3,
@@ -32,11 +32,11 @@ class Api::V1::GrantorController < ApplicationController
           "cnpj": "52562758000117",
           "phone": ["1165128021","1112085611"],
           "fax": "7122334456",
-          "zip": "08780911",
-          "address": "Avenida Dr. Cândido Xavier de Almeida Souza",
+          "cep": "08780911",
+          "street": "Avenida Dr. Cândido Xavier de Almeida Souza",
           "number": "200",
           "city": "Mogi das Cruzes",
-          "state": "São Paulo"
+          "federatedState": "São Paulo"
         },
         {
           "id": 4,
@@ -44,11 +44,11 @@ class Api::V1::GrantorController < ApplicationController
           "cnpj": "07127471000104",
           "phone": ["1199991111","1111119999"],
           "fax": "7122334456",
-          "zip": "04007900",
-          "address": "Rua Tutóia",
+          "cep": "04007900",
+          "street": "Rua Tutóia",
           "number": "1157",
           "city": "São Paulo",
-          "state": "São Paulo"
+          "federatedState": "São Paulo"
         }
       ]
     }
@@ -61,8 +61,8 @@ class Api::V1::GrantorController < ApplicationController
           "id": 1,
           "name": "Universidade São Paulo",
           "phone": ["1112344556","1165566556"],
-          "zip": "05508900",
-          "address": "Rua da Praça do Relógio",
+          "cep": "05508900",
+          "street": "Rua da Praça do Relógio",
           "number": "109",
           "city": "São Paulo",
           "state": "São Paulo"
