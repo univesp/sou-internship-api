@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 3000:3000
+      - 3001:3000
     env_file:
       - .env
     command: rails server -b 0.0.0.0

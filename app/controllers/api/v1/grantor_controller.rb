@@ -1,7 +1,7 @@
 class Api::V1::GrantorController < ApplicationController
   def index
     @grantors = {
-      "grantors": [
+      [
         {
           "id": 1,
           "name": "Universidade São Paulo",
@@ -48,7 +48,7 @@ class Api::V1::GrantorController < ApplicationController
   end
   def show
     @grantor = {
-      "grantor": [
+      [
         {
           "id": 1,
           "name": "Universidade São Paulo",

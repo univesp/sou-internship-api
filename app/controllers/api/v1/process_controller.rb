@@ -1,7 +1,7 @@
 class Api::V1::ProcessController < ApplicationController
 	def index
 		@processes = {
-			"processes": [
+			[
 				{
 					"id": 1,
 					"type": 0,
@@ -56,7 +56,7 @@ class Api::V1::ProcessController < ApplicationController
 	end
 	def show
 		@process = {
-			"process": [
+			[
 				{
 					"id": 1,
 					"type": 0,
