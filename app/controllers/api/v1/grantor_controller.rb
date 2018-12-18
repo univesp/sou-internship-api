@@ -1,7 +1,7 @@
 class Api::V1::GrantorController < ApplicationController
   def index
-    @grantor = {
-      "grantor": [
+    @grantors = {
+      "grantors": [
         {
           "id": 1,
           "name": "Universidade São Paulo",
@@ -39,6 +39,23 @@ class Api::V1::GrantorController < ApplicationController
           "zip": "04007900",
           "address": "Rua Tutóia",
           "number": "1157",
+          "city": "São Paulo",
+          "state": "São Paulo"
+        }
+      ]
+    }
+    render json: @grantors
+  end
+  def show
+    @grantor = {
+      "grantor": [
+        {
+          "id": 1,
+          "name": "Universidade São Paulo",
+          "phone": ["1112344556","1165566556"],
+          "zip": "05508900",
+          "address": "Rua da Praça do Relógio",
+          "number": "109",
           "city": "São Paulo",
           "state": "São Paulo"
         }

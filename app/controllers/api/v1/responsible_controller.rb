@@ -1,7 +1,7 @@
 class Api::V1::ResponsibleController < ApplicationController
   def index
-    @responsible = {
-			"responsible": [
+    @responsibles = {
+			"responsibles": [
 			  {
           "id": 1,
           "name": "Mario Inacio da Fonseca",
@@ -28,6 +28,19 @@ class Api::V1::ResponsibleController < ApplicationController
         }
 			]
     }
+    render json: @responsibles
+  end
+  def show
+    @responsible = {
+			"responsible": [
+			  {
+          "id": 1,
+          "name": "Mario Inacio da Fonseca",
+          "phone": ["1112344556","1165566556"],
+          "email": "mario.fonseca@univesp.br"
+        }
+			]
+    }
     render json: @responsible
-	end
+  end
 end

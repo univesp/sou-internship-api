@@ -1,7 +1,7 @@
 class Api::V1::AdvisorController < ApplicationController
   def index
-		@advisor = {
-			"advisor": [
+		@advisors = {
+			"advisors": [
 			  {
           "id": 1,
           "name": "Alberto Silva",
@@ -32,6 +32,20 @@ class Api::V1::AdvisorController < ApplicationController
         }
 			]
     }
+    render json: @advisors
+  end
+  def show
+    @advisor = {
+			"advisor": [
+			  {
+          "id": 1,
+          "name": "Alberto Silva",
+          "phone": ["1112344556","1165566556"],
+          "email": "alberto.silva@univesp.br",
+          "departament": "Engenharias"
+        }
+			]
+    }
     render json: @advisor
-	end
+  end
 end
