@@ -1,7 +1,7 @@
 class Api::V1::AdvisorController < ApplicationController
   def index
 		@advisors = {
-      [
+			"advisors": [
 			  {
           "id": 1,
           "name": "Alberto Silva",
@@ -36,7 +36,7 @@ class Api::V1::AdvisorController < ApplicationController
   end
   def show
     @advisor = {
-			[
+			"advisor": [
 			  {
           "id": 1,
           "name": "Alberto Silva",
