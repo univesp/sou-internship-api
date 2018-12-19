@@ -35,7 +35,7 @@ $ docker-compose up
 
 ## Usando a API
 
-Para acessar os endpoits da aplicação, siga estes passos:
+Para acessar os endpoints da aplicação, siga estes passos:
 
 **1**. Inicie a aplicação
 ```
