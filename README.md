@@ -53,5 +53,7 @@ $ docker-compose up --build
 ## Mantenedores
 
 Robson Arruda (https://github.com/robsonarruda1)
+
 Thiago Rossi (https://github.com/ezequielor)
+
 Ezequiel Ramos (https://github.com/tcalurarossi)
