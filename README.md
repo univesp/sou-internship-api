@@ -47,12 +47,11 @@ $ docker-compose up --build
 ## Construído com
 
 *[Ruby 2.5.1](https://www.ruby-lang.org/pt/)
+
 *[Ruby On Rails 5.2.1](https://rubyonrails.org/)
 
 ## Mantenedores
 
 Robson Arruda (https://github.com/robsonarruda1)
-
 Thiago Rossi (https://github.com/ezequielor)
-
 Ezequiel Ramos (https://github.com/tcalurarossi)
