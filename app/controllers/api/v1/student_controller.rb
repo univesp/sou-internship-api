@@ -57,11 +57,21 @@ class Api::V1::StudentController < ApplicationController
           "documents": {
             "rg": {
               "number": "273044576",
-              "issuer": "SSP"
+              "issuer": "Secretaria de Segurança Pública"
             },
             "cpf": "17143053929",
-            "electoralCard": "", 
-            "certificateReservist": ""
+            "electoralCard": "516485230175", 
+            "certificateReservist": "",
+            "motherName": "Joana Pereira Rodrigues"
+            "fatherName": "Jurandir Oliveira Rodrigues"
+          }, 
+          "address": {
+            "street": "Rua da Vitória",
+            "number": "66",
+            "zip": "07600100",
+            "district": "Anhangabau",
+            "city": "São Paulo",
+            "state": "SP"
           }
         }
       ]
