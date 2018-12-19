@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # INTERNSHIP API
 
 ## Pré-requisito
