@@ -1,46 +1,73 @@
-class Api::V1::ResponsibleController < ApplicationController
+class Api::V1::ProcessController < ApplicationController
   def index
-    @responsibles = {
-			"responsibles": [
+    @processes = {
+			"processes": [
 			  {
           "id": 1,
+          "avatar": "",
           "name": "Mario Inacio da Fonseca",
-          "phone": ["1112344556","1165566556"],
-          "email": "mario.fonseca@univesp.br"
+          "course": "Engenharia da Computação",
+          "startSem": "2019.1",
+          "endSem": "2023.1",
+          "grantorId": 1,
+          "responsibleId": 1,
+          "professorId": 1,
+          "status": 0
         }, 
         {
           "id": 2,
           "name": "Marcos Soares Campos",
-          "phone": ["7122334456","7165443322"],
-          "email": "marcos.campos@univesp.br"
+          "course": "Engenharia de Produção",
+          "startSem": "2019.1",
+          "endSem": "2023.1",
+          "grantorId": 1,
+          "responsibleId": 1,
+          "professorId": 1,
+          "status": 0
         },
         {
           "id": 3,
           "name": "Antonio Bandeira Nunes",
-          "phone": ["1165128021","1112085611"],
-          "email": "antonio.nunes@univesp.br"
+          "course": "Licenciatura em Física",
+          "startSem": "2019.1",
+          "endSem": "2023.1",
+          "grantorId": 1,
+          "responsibleId": 1,
+          "professorId": 1,
+          "status": 0
         },
         {
           "id": 4,
           "name": "Jack Bauer",
-          "phone": ["1199991111","1111119999"],
-          "email": "jack.bauer@univesp.br"
+          "course": "Engenharia da Computação",
+          "startSem": "2019.1",
+          "endSem": "2023.1",
+          "grantorId": 1,
+          "responsibleId": 1,
+          "professorId": 1,
+          "status": 0
         }
 			]
     }
-    render json: @responsibles
+    render json: @processes
   end
   def show
-    @responsible = {
-			"responsible": [
+    @process = {
+			"process": [
 			  {
           "id": 1,
+          "avatar": "",
           "name": "Mario Inacio da Fonseca",
-          "phone": ["1112344556","1165566556"],
-          "email": "mario.fonseca@univesp.br"
+          "course": "Engenharia da Computação",
+          "startSem": "2019.1",
+          "endSem": "2023.1",
+          "grantorId": 1,
+          "responsibleId": 1,
+          "professorId": 1,
+          "status": 0
         }
 			]
     }
-    render json: @responsible
+    render json: @process
   end
 end
