@@ -44,6 +44,45 @@ $ docker-compose up --build
 
 **2**. Consulte as rotas na url: 'http://localhost:3001/rails/info/routes'
 
+## Contribuindo
+
+Com o fork feito siga estes passos:
+
+**1**. Adicione o remoto univesp
+```
+$ git remote add upstream https://github.com/univesp/sou-internship-api.git
+```
+* Após este passo você deverá possuir dois remotos com 2 branchs cada
+
+Exemplo:
+```
+$ git remote -v
+    origin	https://github.com/robsonarruda1/sou-internship-api.git (fetch)
+    origin	https://github.com/robsonarruda1/sou-internship-api.git (push)
+    upstream	https://github.com/univesp/sou-internship-api.git (fetch)
+    upstream	https://github.com/univesp/sou-internship-api.git (push)
+```
+
+**2**. Atualize as referências dos remotos
+```
+$ git fetch --all
+```
+
+**3**. Mantenha sua branch devel sempre atualizada com o upstrem
+```
+$ git merge upstream/devel
+```
+* Lembre-se de estar na branch devel localmente
+
+**4**. Alterações feitas, comit e envie para seu repositório
+```
+$ git push origin HEAD
+```
+
+**5**. Pull Request
+
+No github clique em 'New Pull Request', selecione a branch devel do seu repositório e a devel do repositório da univesp, pronto seu código será analisado e poderá ser aprovado ou comentado para correções.
+
 ## Construído com
 
 *[Ruby 2.5.1](https://www.ruby-lang.org/pt/)
