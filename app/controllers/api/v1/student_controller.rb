@@ -57,7 +57,7 @@ class Api::V1::StudentController < ApplicationController
           "documents": {
             "rg": {
               "number": "273044576",
-              "issuer": "Secretaria de Segurança Pública"
+              "issuer": "SSP"
             },
             "cpf": "17143053929",
             "electoralCard": "516485230175", 
