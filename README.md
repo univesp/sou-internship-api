@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # INTERNSHIP API
 
 ## PrÃ©-requisito
@@ -92,8 +91,8 @@ No github clique em 'New Pull Request', selecione a branch devel do seu repositÃ
 
 ## Mantenedores
 
-Robson Arruda (https://github.com/robsonarruda1)
+[Robson Arruda](https://github.com/robsonarruda1)
 
-Thiago Rossi (https://github.com/tcalurarossi)
+[Thiago Rossi](https://github.com/tcalurarossi)
 
-Ezequiel Ramos (https://github.com/ezequielor)
+[Ezequiel Ramos](https://github.com/ezequielor)
