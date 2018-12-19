@@ -74,7 +74,7 @@ $ git merge upstream/devel
 ```
 * Lembre-se você deve estar na branch devel localmente
 
-**4**. Alterações feitas, commit e envie para seu repositório
+**4**. Alterações feitas, comite e envie para seu repositório
 ```
 $ git push origin HEAD
 ```
