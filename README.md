@@ -72,7 +72,7 @@ $ git fetch --all
 ```
 $ git merge upstream/devel
 ```
-* Lembre-se de estar na branch devel localmente
+* Lembre-se você deve estar na branch devel localmente
 
 **4**. Alterações feitas, comit e envie para seu repositório
 ```
