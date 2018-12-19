@@ -74,7 +74,7 @@ $ git merge upstream/devel
 ```
 * Lembre-se você deve estar na branch devel localmente
 
-**4**. Alterações feitas, comit e envie para seu repositório
+**4**. Alterações feitas, commit e envie para seu repositório
 ```
 $ git push origin HEAD
 ```
@@ -93,6 +93,6 @@ No github clique em 'New Pull Request', selecione a branch devel do seu reposit�
 
 Robson Arruda (https://github.com/robsonarruda1)
 
-Thiago Rossi (https://github.com/ezequielor)
+Thiago Rossi (https://github.com/tcalurarossi)
 
-Ezequiel Ramos (https://github.com/tcalurarossi)
+Ezequiel Ramos (https://github.com/ezequielor)
