@@ -62,9 +62,11 @@ class Api::V1::StudentController < ApplicationController
             "cpf": "17143053929",
             "electoralCard": "516485230175", 
             "certificateReservist": "",
-            "motherName": "Joana Pereira Rodrigues"
-            "fatherName": "Jurandir Oliveira Rodrigues"
           }, 
+          "parents": {
+            "motherName": "Joana Pereira Rodrigues",
+            "fatherName": "Jurandir Oliveira Rodrigues"
+          },
           "address": {
             "street": "Rua da Vitória",
             "number": "66",
