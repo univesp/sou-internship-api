@@ -28,7 +28,13 @@ $ cp .env.example .env
 $ cp .Gemfile.lock.example .Gemfile.lock
 ```
 
-**4**. Inicie a aplicação
+**4**. Entre na pasta config e copie o arquivo secrets.yml.example, *é necessário editar este arquivo
+```
+$ cd config
+$ cp secrets.yml.example secrets.yml
+```
+
+**5**. Inicie a aplicação
 ```
 $ docker-compose up --build
 ```
