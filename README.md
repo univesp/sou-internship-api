@@ -25,7 +25,7 @@ $ cp .env.example .env
 
 **3**. Copie o arquivo .Gemfile.lock.example se possuir ruby em sua máquina basta rodar bundle
 ```
-$ cp .Gemfile.lock.example .Gemfile.lock
+$ cp Gemfile.lock.example Gemfile.lock
 ```
 
 **4**. Entre na pasta config e copie o arquivo secrets.yml.example, *é necessário editar este arquivo
