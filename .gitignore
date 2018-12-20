@@ -289,5 +289,6 @@ $RECYCLE.BIN/
 *.lnk
 .env
 Gemfile.lock
+secrets.yml
 
 # End of https://www.gitignore.io/api/git,ruby,macos,linux,rails,windows,rubymine,visualstudiocode
