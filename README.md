@@ -18,12 +18,23 @@ $ git clone https://github.com/robsonarruda1/sou-internship-api.git
 $ cd sou-internship-api
 ```
 
-**2**. Copie e o arquivo .env.example se necessário edite
+**2**. Copie o arquivo .env.example se necessário edite
 ```
 $ cp .env.example .env
 ```
 
-**3**. Inicie a aplicação
+**3**. Copie o arquivo .Gemfile.lock.example se possuir ruby em sua máquina basta rodar bundle
+```
+$ cp .Gemfile.lock.example .Gemfile.lock
+```
+
+**4**. Entre na pasta config e copie o arquivo secrets.yml.example, *é necessário editar este arquivo
+```
+$ cd config
+$ cp secrets.yml.example secrets.yml
+```
+
+**5**. Inicie a aplicação
 ```
 $ docker-compose up --build
 ```
