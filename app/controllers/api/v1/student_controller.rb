@@ -40,6 +40,7 @@ class Api::V1::StudentController < ApplicationController
     @student_data = {
       "studentData": [ 
         {
+          "id": 1,
           "firstName": "Alice",
           "lastName": "Pereira Rodrigues",
           "assumedName": "",
