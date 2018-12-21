@@ -15,7 +15,7 @@ class Api::V1::OrganizationController < ApplicationController
 		if organization.save
 			render json: {data:organization},status: :ok
 		else
-			render json: {data:organization.erros},status: :unprocessable_entity
+			render json: {data:organization},status: :unprocessable_entity
 		end
 	end
 
