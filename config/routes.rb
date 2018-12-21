@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get "student/:id/processes", to: "student#processes"
 
       # get 'grantor/:id',  to: 'grantor#reset',
-      resources :grantor, :professor, :responsible, :advisor, :process
+      resources :grantor, :professor, :responsible, :advisor, :process, :organization
     end
   end
 end
