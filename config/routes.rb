@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: :json } do
+  root "base#index"
+  namespace :api do
+    get "/", to: "base#index"
     namespace :v1 do
 
       get "student/:id", to: "student#student_data"
