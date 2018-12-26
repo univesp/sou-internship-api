@@ -1,0 +1,2 @@
+class InternshipProcessHistory < ApplicationRecord
+end
