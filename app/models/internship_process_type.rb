@@ -9,4 +9,5 @@
 #
 
 class InternshipProcessType < ApplicationRecord
+  has_many :internship_processes
 end

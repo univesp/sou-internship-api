@@ -11,4 +11,6 @@
 #
 
 class InternshipDocument < ApplicationRecord
+  belongs_to :internship_process
+  belongs_to :document_type
 end

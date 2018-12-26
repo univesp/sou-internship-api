@@ -11,4 +11,5 @@
 #
 
 class InternshipProcessHistory < ApplicationRecord
+  belongs_to :internship_process
 end

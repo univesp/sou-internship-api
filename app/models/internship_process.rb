@@ -19,4 +19,9 @@
 #
 
 class InternshipProcess < ApplicationRecord
+  belongs_to :internship_process_type
+  belongs_to :organization
+
+  has_many :internship_process_histories
+  has_many :internship_documents
 end

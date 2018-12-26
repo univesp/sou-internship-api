@@ -9,4 +9,5 @@
 #
 
 class DocumentType < ApplicationRecord
+  has_many :internship_documents
 end
