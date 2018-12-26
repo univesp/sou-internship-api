@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: document_types
+#
+#  id            :integer          not null, primary key
+#  name_document :string(45)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the
