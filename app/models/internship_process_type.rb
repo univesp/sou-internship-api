@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: organization_types
+# Table name: internship_process_types
 #
 #  id         :integer          not null, primary key
-#  name       :string(45)
+#  name       :string(100)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class OrganizationType < ApplicationRecord
-  has_many :organization
+class InternshipProcessType < ApplicationRecord
 end

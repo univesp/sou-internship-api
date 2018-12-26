@@ -1,2 +1,0 @@
-class IntershipProcess < ApplicationRecord
-end
