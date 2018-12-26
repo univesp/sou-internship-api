@@ -1,0 +1,2 @@
+class IntershipProcessType < ApplicationRecord
+end
