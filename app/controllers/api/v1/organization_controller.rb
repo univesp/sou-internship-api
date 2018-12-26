@@ -39,14 +39,13 @@ class Api::V1::OrganizationController < ApplicationController
 
 		def organization_params
 			params.permit(
-				:id,
 				:organization_type_id,
 				:document_number,
 				:organization_name,
 				:phone1,
 				:phone2,
 				:fax,
-				:street,
+        :street,
 				:street_number,
 				:city,
 				:state,
