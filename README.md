@@ -53,7 +53,7 @@ Para acessar os endpoints da aplicação, siga estes passos:
 $ docker-compose up --build
 ```
 
-**2**. Consulte as rotas na url: 'http://localhost:3001/rails/info/routes'
+**2**. Consulte a documentação da API *[internship::v1](https://github.com/univesp/sou-internship-api/blob/devel/docs/intershipV1.md)
 
 ## Contribuindo
 
