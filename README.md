@@ -63,7 +63,7 @@ Com o fork feito siga estes passos:
 ```
 $ git remote add upstream https://github.com/univesp/sou-internship-api.git
 ```
-* Após este passo você deverá possuir dois remotos com 2 branchs cada
+* Após este passo você deverá possuir dois remotos
 
 Exemplo:
 ```
