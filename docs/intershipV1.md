@@ -100,7 +100,7 @@ Nome | Tipo | Descrição | Exemplo
 **404** ```Estudante não encontrado```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /student/{id}/processes
 ---
 Exibe os processos do estudante
@@ -233,7 +233,7 @@ Exibe os concedentes cadastrados na base
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /grantor/{id}
 ---
 Exibe o concedente
@@ -331,7 +331,7 @@ Exibe os professores cadastrados na base
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /professor/{id}
 ---
 Exibe o professor
@@ -523,7 +523,7 @@ Exibe os orientadores cadastrados na base
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /advisor/{id}
 ---
 Exibe o responsável
@@ -626,7 +626,7 @@ Exibe os orientadores cadastrados na base
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /process/{id}
 ---
 Exibe o processo
@@ -750,7 +750,7 @@ Exibe as organizações cadastradas na base
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /organization/{id}
 ---
 Exibe a organização
@@ -792,7 +792,7 @@ Nome | Tipo | Descrição | Exemplo
 **404** ```Organização não encontrado```
 
 **500** ```Erro interno no servidor```
----
+
 **POST** /organization
 ---
 Cria a organização
@@ -886,7 +886,7 @@ Nome | Tipo | Descrição | Exemplo
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **DELETE** /organization/{id}
 ---
 Exclui a organização
@@ -928,7 +928,7 @@ Nome | Tipo | Descrição | Exemplo
 **404** ```Organização não encontrado```
 
 **500** ```Erro interno no servidor```
----
+
 **PATCH** /organization/{id}
 ---
 Atualiza a organização
@@ -979,7 +979,7 @@ Nome | Tipo | Descrição | Exemplo
 **404** ```Organização não encontrado```
 
 **500** ```Erro interno no servidor```
----
+
 **PUT** /organization/{id}
 ---
 Atualiza a organização
