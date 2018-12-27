@@ -113,7 +113,7 @@ Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/student/1/processes*
 
-###Status Code
+### Status Code
 
 **200** ```OK```
 
