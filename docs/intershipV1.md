@@ -867,20 +867,9 @@ Nome | Tipo | Descrição | Exemplo
 ```json
 {
 	"data": {
-		"id": null,
-		"organization_type_id": null,
-		"document_number": "12345678910",
-		"organization_name": "Dell",
-		"phone1": "70707070770",
-		"phone2": "56627070",
-		"fax": null,
-		"street": "Rua a do lado b",
-		"street_number": 20,
-		"city": "São Paulo",
-		"state": "SP",
-		"zipcode": "04312898",
-		"created_at": null,
-		"updated_at": null
+		"organization_type": [
+			"must exist"
+		]
 	}
 }
 ```
