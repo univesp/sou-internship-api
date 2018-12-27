@@ -37,7 +37,7 @@ HTTP requisição | Descrição | Exemplo
 ## Student
 
 **GET** /student/{id}
-
+---
 Exibe o estudante
 
 Exibe o estudante pelo seu id
@@ -102,7 +102,7 @@ Nome | Tipo | Descrição | Exemplo
 **500** ```Erro interno no servidor```
 
 **GET** /student/{id}/processes
-
+---
 Exibe os processos do estudante
 
 Exibe os processos do estudante pelo seu id
@@ -155,7 +155,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Grantor
 
 **GET** /grantor
-
+---
 Exibe os concedentes
 
 Exibe os concedentes cadastrados na base
@@ -235,7 +235,7 @@ Exibe os concedentes cadastrados na base
 **500** ```Erro interno no servidor```
 
 **GET** /grantor/{id}
-
+---
 Exibe o concedente
 
 Exibe o concedente cadastrado na base pelo id
@@ -277,7 +277,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Professor
 
 **GET** /professor
-
+---
 Exibe os professores
 
 Exibe os professores cadastrados na base
@@ -333,7 +333,7 @@ Exibe os professores cadastrados na base
 **500** ```Erro interno no servidor```
 
 **GET** /professor/{id}
-
+---
 Exibe o professor
 
 Exibe o professor cadastrado na base pelo id
@@ -371,7 +371,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Responsible
 
 **GET** /responsible
-
+---
 Exibe os responsáveis
 
 Exibe os responsáveis cadastrados na base pelo id
@@ -425,9 +425,9 @@ Exibe os responsáveis cadastrados na base pelo id
 ```
 
 **500** ```Erro interno no servidor```
-
+---
 **GET** /responsible/{id}
-
+---
 Exibe o responsável
 
 Exibe o responsável cadastrado na base pelo id
@@ -465,7 +465,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Advisor
 
 **GET** /advisor
-
+---
 Exibe os orientadores
 
 Exibe os orientadores cadastrados na base
@@ -525,7 +525,7 @@ Exibe os orientadores cadastrados na base
 **500** ```Erro interno no servidor```
 
 **GET** /advisor/{id}
-
+---
 Exibe o responsável
 
 Exibe o responsável cadastrado na base pelo id
@@ -563,7 +563,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Process
 
 **GET** /process
-
+---
 Exibe os orientadores
 
 Exibe os orientadores cadastrados na base
@@ -628,7 +628,7 @@ Exibe os orientadores cadastrados na base
 **500** ```Erro interno no servidor```
 
 **GET** /process/{id}
-
+---
 Exibe o processo
 
 Exibe o processo cadastrado na base pelo id
@@ -668,7 +668,7 @@ Nome | Tipo | Descrição | Exemplo
 ## Organization
 
 **GET** /organization
-
+---
 Exibe as organizações
 
 Exibe as organizações cadastradas na base
@@ -752,7 +752,7 @@ Exibe as organizações cadastradas na base
 **500** ```Erro interno no servidor```
 
 **GET** /organization/{id}
-
+---
 Exibe a organização
 
 Exibe a organização cadastrada na base pelo id
@@ -794,7 +794,7 @@ Nome | Tipo | Descrição | Exemplo
 **500** ```Erro interno no servidor```
 
 **POST** /organization
-
+---
 Cria a organização
 
 Cria a organização na qual o estudante irá estagiar 
@@ -867,20 +867,9 @@ Nome | Tipo | Descrição | Exemplo
 ```json
 {
 	"data": {
-		"id": null,
-		"organization_type_id": null,
-		"document_number": "12345678910",
-		"organization_name": "Dell",
-		"phone1": "70707070770",
-		"phone2": "56627070",
-		"fax": null,
-		"street": "Rua a do lado b",
-		"street_number": 20,
-		"city": "São Paulo",
-		"state": "SP",
-		"zipcode": "04312898",
-		"created_at": null,
-		"updated_at": null
+		"organization_type": [
+			"must exist"
+		]
 	}
 }
 ```
@@ -888,7 +877,7 @@ Nome | Tipo | Descrição | Exemplo
 **500** ```Erro interno no servidor```
 
 **DELETE** /organization/{id}
-
+---
 Exclui a organização
 
 Exclui a organização cadastrada na base pelo id
@@ -930,7 +919,7 @@ Nome | Tipo | Descrição | Exemplo
 **500** ```Erro interno no servidor```
 
 **PATCH** /organization/{id}
-
+---
 Atualiza a organização
 
 Atualiza parcialmente dados da organização cadastrada na base pelo id
@@ -981,7 +970,7 @@ Nome | Tipo | Descrição | Exemplo
 **500** ```Erro interno no servidor```
 
 **PUT** /organization/{id}
-
+---
 Atualiza a organização
 
 Atualiza todos dados da organização cadastrada na base pelo id
