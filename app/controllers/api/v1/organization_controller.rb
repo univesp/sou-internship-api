@@ -15,17 +15,17 @@ class Api::V1::OrganizationController < ApplicationController
 		if organization.save
 			render json: {data:organization},status: :ok
 		else
-			render json: {data:organization},status: :unprocessable_entity
+			render json: {data:organization.errors},status: :unprocessable_entity
 		end
 	end
 
 	def update
 		organization = Organization.find(params[:id])
-
-		if organization.update_attributes(organization_params)
+		
+		if organization.update(organization_params)
 			render json: {data:organization},status: :ok
 		else
-			render json: {data:organization},status: :unprocessable_entity
+			render json: {data:organization.errors},status: :unprocessable_entity
 		end
 	end
 
