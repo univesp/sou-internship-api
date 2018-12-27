@@ -14,6 +14,7 @@
 #  accept_terms                 :integer
 #  approved hours               :integer
 #  status                       :integer          default(0)
+#  justification_rejection      :integer
 #  created_at                   :datetime
 #  updated_at                   :datetime
 #

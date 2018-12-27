@@ -874,6 +874,8 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
+**400** ```Bad Request```
+
 **500** ```Erro interno no servidor```
 
 **DELETE** /organization/{id}
@@ -963,6 +965,8 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
+**400** ```Bad Request```
+
 **422** ```Unprocessable Entity```
 
 **404** ```Organização não encontrado```
@@ -1023,6 +1027,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
+**400** ```Bad Request```
 
 **422** ```Unprocessable Entity```
 

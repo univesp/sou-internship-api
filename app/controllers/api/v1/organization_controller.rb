@@ -38,7 +38,7 @@ class Api::V1::OrganizationController < ApplicationController
 	private
 
 		def organization_params
-			params.permit(
+			params.require(:organization).permit(
 				:organization_type_id,
 				:document_number,
 				:organization_name,
