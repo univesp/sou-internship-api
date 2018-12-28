@@ -33,6 +33,12 @@ HTTP requisição | Descrição | Exemplo
 **DELETE** /organization/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PATCH** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PUT** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
+**GET** /internship/process | Exibe todos organizações | *http://localhost:3001/api/v1/internship/process*
+**GET** /internship/process/{id} | Exibe a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**POST** /internship/process | Cria organização | *http://localhost:3001/api/v1/internship/process*
+**DELETE** /internship/process/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PATCH** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PUT** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
 
 ## Student
 
@@ -97,7 +103,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Estudante não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -148,7 +154,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Estudante não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -270,7 +276,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Concedente não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -364,7 +370,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Professor não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -458,7 +464,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Responsavel não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -556,7 +562,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Responsavel não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -661,7 +667,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Processo não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -789,7 +795,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -916,7 +922,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -969,7 +975,7 @@ Nome | Tipo | Descrição | Exemplo
 
 **422** ```Unprocessable Entity```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -1031,6 +1037,376 @@ Nome | Tipo | Descrição | Exemplo
 
 **422** ```Unprocessable Entity```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+## Internship Process
+
+**GET** /internship/process
+---
+Exibe os processos de estágio
+
+Exibe todos os processos de estágio cadastradas na base
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"data": [
+		{
+			"id": 11,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": "70707070770",
+			"phone2": "56627070",
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T11:42:04.000Z",
+			"updated_at": "2018-12-27T11:42:04.000Z"
+		},
+		{
+			"id": 10,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": "70707070770",
+			"phone2": "56627070",
+			"fax": "nutem",
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T11:41:45.000Z",
+			"updated_at": "2018-12-27T11:41:45.000Z"
+		},
+		{
+			"id": 9,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": null,
+			"phone2": null,
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T11:40:53.000Z",
+			"updated_at": "2018-12-27T11:40:53.000Z"
+		},
+		{
+			"id": 8,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": null,
+			"phone2": null,
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T10:32:19.000Z",
+			"updated_at": "2018-12-27T10:32:19.000Z"
+		}
+	]
+}
+```
+
+**500** ```Erro interno no servidor```
+
+**GET** /internship/process/{id}
+---
+Exibe o processo de estágio
+
+Exibe o processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/8*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"data": [
+		{
+			"id": 8,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": null,
+			"phone2": null,
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T10:32:19.000Z",
+			"updated_at": "2018-12-27T10:32:19.000Z"
+		}
+	]
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**POST** /internship/process
+---
+Cria o processo de estágio
+
+Cria o processo de estágio com base nas informações inputadas 
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerida no PATH | *http://localhost:3001/api/v1/internship/process*
+  | **Json** | requerido no body | objeto json
+
+### Status code
+**200** ```OK```
+
+### Body
+```json
+{
+	"organization_type_id": 1,
+	"document_number": "12345678910",
+	"organization_name": "Dell",
+	"phone1": 70707070770,
+	"phone2": 56627070,
+	"fax": null,
+	"street": "Rua a do lado b",
+	"street_number": 20,
+	"city": "São Paulo",
+	"state": "SP",
+	"zipcode": "04312898"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"data": {
+		"id": 11,
+		"organization_type_id": 1,
+		"document_number": "12345678910",
+		"organization_name": "Dell",
+		"phone1": "70707070770",
+		"phone2": "56627070",
+		"fax": null,
+		"street": "Rua a do lado b",
+		"street_number": 20,
+		"city": "São Paulo",
+		"state": "SP",
+		"zipcode": "04312898",
+		"created_at": "2018-12-27T11:42:04.000Z",
+		"updated_at": "2018-12-27T11:42:04.000Z"
+	}
+}
+```
+### Body
+
+**422** ```Unprocessable Entity```
+```json
+{
+	"document_number": "12345678910",
+	"organization_name": "Dell",
+	"phone1": 70707070770,
+	"phone2": 56627070,
+	"fax": null,
+	"street": "Rua a do lado b",
+	"street_number": 20,
+	"city": "São Paulo",
+	"state": "SP",
+	"zipcode": "04312898"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"data": {
+		"organization_type": [
+			"must exist"
+		]
+	}
+}
+```
+
+**400** ```Bad Request```
+
+**500** ```Erro interno no servidor```
+
+**DELETE** /internship/process/{id}
+---
+Exclui o processo de estágio
+
+Exclui o processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/8*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"data": [
+		{
+			"id": 8,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Dell",
+			"phone1": null,
+			"phone2": null,
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T10:32:19.000Z",
+			"updated_at": "2018-12-27T10:32:19.000Z"
+		}
+	]
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PATCH** /internship/process/{id}
+---
+Atualiza o processo de estágio
+
+Atualiza parcialmente dados do processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/11*
+ **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+  "organization_name": "Astronauta"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"data": [
+		{
+			"id": 11,
+			"organization_type_id": 1,
+			"document_number": "12345678910",
+			"organization_name": "Astronauta",
+			"phone1": null,
+			"phone2": null,
+			"fax": null,
+			"street": "Rua a do lado b",
+			"street_number": 20,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "04312898",
+			"created_at": "2018-12-27T10:32:19.000Z",
+			"updated_at": "2018-12-27T10:32:19.000Z"
+		}
+	]
+}
+```
+
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PUT** /internship/process/{id}
+---
+Atualiza o processo de estágio
+
+Atualiza todos dados do processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/11*
+ **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+	"organization_type_id": 2,
+	"document_number": "2314678198",
+	"organization_name": "Bolinha",
+	"phone1": "12349080",
+	"phone2": null,
+	"fax": null,
+	"street": "Rua b do lado a",
+	"street_number": 203,
+	"city": "São Paulo",
+	"state": "SP",
+	"zipcode": "0000123"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"data": [
+		{
+			"id": 11,
+			"organization_type_id": 2,
+			"document_number": "2314678198",
+			"organization_name": "Bolinha",
+			"phone1": "12349080",
+			"phone2": null,
+			"fax": null,
+			"street": "Rua b do lado a",
+			"street_number": 203,
+			"city": "São Paulo",
+			"state": "SP",
+			"zipcode": "0000123",
+			"created_at": "2018-12-27T10:32:19.000Z",
+			"updated_at": "2018-12-27T10:32:19.000Z"
+		}
+	]
+}
+```
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
