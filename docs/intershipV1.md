@@ -431,7 +431,7 @@ Exibe os responsáveis cadastrados na base pelo id
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /responsible/{id}
 ---
 Exibe o responsável
@@ -1056,70 +1056,40 @@ Exibe todos os processos de estágio cadastradas na base
 ### Exemplo de resposta
 ```json
 {
-	"data": [
+	"processes": [
 		{
-			"id": 11,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
-			"phone1": "70707070770",
-			"phone2": "56627070",
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T11:42:04.000Z",
-			"updated_at": "2018-12-27T11:42:04.000Z"
-		},
-		{
-			"id": 10,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
-			"phone1": "70707070770",
-			"phone2": "56627070",
-			"fax": "nutem",
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T11:41:45.000Z",
-			"updated_at": "2018-12-27T11:41:45.000Z"
-		},
-		{
-			"id": 9,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
+			"id": 2,
+			"student_id": 1,
+			"user_id": 1,
+			"organizations_id": 11,
+			"internship_process_type_id": 1,
+			"internship_responsible": "1",
 			"phone1": null,
 			"phone2": null,
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T11:40:53.000Z",
-			"updated_at": "2018-12-27T11:40:53.000Z"
+			"email_internship_responsible": "teste@teste.com",
+			"accept_terms": 1,
+			"approved_hours": null,
+			"status": 0,
+			"created_at": "2018-12-28T15:58:15.000Z",
+			"updated_at": "2018-12-28T15:58:15.000Z",
+			"justification_rejection": null
 		},
 		{
-			"id": 8,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
-			"phone1": null,
+			"id": 1,
+			"student_id": 10,
+			"user_id": 10,
+			"organizations_id": 13,
+			"internship_process_type_id": 1,
+			"internship_responsible": "1",
+			"phone1": "124244525",
 			"phone2": null,
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T10:32:19.000Z",
-			"updated_at": "2018-12-27T10:32:19.000Z"
+			"email_internship_responsible": "testei@teste.com",
+			"accept_terms": 1,
+			"approved_hours": 100,
+			"status": 0,
+			"created_at": "2018-12-28T13:42:06.000Z",
+			"updated_at": "2018-12-28T16:12:03.000Z",
+			"justification_rejection": null
 		}
 	]
 }
@@ -1135,7 +1105,7 @@ Exibe o processo de estágio cadastrada na base pelo id
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/8*
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/1*
 
 ###  Status Code
 
@@ -1144,24 +1114,23 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de resposta
 ```json
 {
-	"data": [
-		{
-			"id": 8,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
-			"phone1": null,
-			"phone2": null,
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T10:32:19.000Z",
-			"updated_at": "2018-12-27T10:32:19.000Z"
-		}
-	]
+	"process": {
+		"id": 1,
+		"student_id": 10,
+		"user_id": 10,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": null,
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": 100,
+		"status": 0,
+		"created_at": "2018-12-28T13:42:06.000Z",
+		"updated_at": "2018-12-28T16:12:03.000Z",
+		"justification_rejection": null
+	}
 }
 ```
 
@@ -1186,38 +1155,38 @@ Nome | Tipo | Descrição | Exemplo
 ### Body
 ```json
 {
-	"organization_type_id": 1,
-	"document_number": "12345678910",
-	"organization_name": "Dell",
-	"phone1": 70707070770,
-	"phone2": 56627070,
-	"fax": null,
-	"street": "Rua a do lado b",
-	"street_number": 20,
-	"city": "São Paulo",
-	"state": "SP",
-	"zipcode": "04312898"
+	"student_id":2,
+	"user_id":2,
+	"organizations_id":13,
+	"internship_process_type_id":1,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
 }
 ```
 
 ### Exemplo de resposta
 ```json
 {
-	"data": {
-		"id": 11,
-		"organization_type_id": 1,
-		"document_number": "12345678910",
-		"organization_name": "Dell",
-		"phone1": "70707070770",
-		"phone2": "56627070",
-		"fax": null,
-		"street": "Rua a do lado b",
-		"street_number": 20,
-		"city": "São Paulo",
-		"state": "SP",
-		"zipcode": "04312898",
-		"created_at": "2018-12-27T11:42:04.000Z",
-		"updated_at": "2018-12-27T11:42:04.000Z"
+	"process": {
+		"id": 3,
+		"student_id": 2,
+		"user_id": 2,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T16:27:56.000Z",
+		"updated_at": "2018-12-28T16:27:56.000Z",
+		"justification_rejection": "Não possui documento tal"
 	}
 }
 ```
@@ -1226,24 +1195,22 @@ Nome | Tipo | Descrição | Exemplo
 **422** ```Unprocessable Entity```
 ```json
 {
-	"document_number": "12345678910",
-	"organization_name": "Dell",
-	"phone1": 70707070770,
-	"phone2": 56627070,
-	"fax": null,
-	"street": "Rua a do lado b",
-	"street_number": 20,
-	"city": "São Paulo",
-	"state": "SP",
-	"zipcode": "04312898"
+	"student_id":2,
+	"user_id":2,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
 }
 ```
 
 ### Exemplo de resposta
 ```json
 {
-	"data": {
-		"organization_type": [
+	"process": {
+		"internship_process_type": [
 			"must exist"
 		]
 	}
@@ -1262,7 +1229,7 @@ Exclui o processo de estágio cadastrada na base pelo id
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/8*
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/3*
 
 ###  Status Code
 
@@ -1271,24 +1238,23 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de resposta
 ```json
 {
-	"data": [
-		{
-			"id": 8,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Dell",
-			"phone1": null,
-			"phone2": null,
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T10:32:19.000Z",
-			"updated_at": "2018-12-27T10:32:19.000Z"
-		}
-	]
+	"process": {
+		"id": 3,
+		"student_id": 2,
+		"user_id": 2,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T16:27:56.000Z",
+		"updated_at": "2018-12-28T16:27:56.000Z",
+		"justification_rejection": "Não possui documento tal"
+	}
 }
 ```
 
@@ -1304,7 +1270,7 @@ Atualiza parcialmente dados do processo de estágio cadastrada na base pelo id
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/11*
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/2*
  **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
 ###  Status Code
 
@@ -1313,31 +1279,30 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de body
 ```json
 {
-  "organization_name": "Astronauta"
+  "justification_rejection": "Não possui documento tal"
 }
 ```
 
 ### Exemplo de resposta
 ```json
 {
-	"data": [
-		{
-			"id": 11,
-			"organization_type_id": 1,
-			"document_number": "12345678910",
-			"organization_name": "Astronauta",
-			"phone1": null,
-			"phone2": null,
-			"fax": null,
-			"street": "Rua a do lado b",
-			"street_number": 20,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "04312898",
-			"created_at": "2018-12-27T10:32:19.000Z",
-			"updated_at": "2018-12-27T10:32:19.000Z"
-		}
-	]
+	"process": {
+		"id": 2,
+		"justification_rejection": "Não possui documento tal",
+		"internship_process_type_id": 1,
+		"student_id": 1,
+		"user_id": 1,
+		"organizations_id": 11,
+		"internship_responsible": "1",
+		"phone1": null,
+		"phone2": null,
+		"email_internship_responsible": "teste@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T15:58:15.000Z",
+		"updated_at": "2018-12-28T16:32:13.000Z"
+	}
 }
 ```
 
@@ -1366,41 +1331,37 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de body
 ```json
 {
-	"organization_type_id": 2,
-	"document_number": "2314678198",
-	"organization_name": "Bolinha",
-	"phone1": "12349080",
-	"phone2": null,
-	"fax": null,
-	"street": "Rua b do lado a",
-	"street_number": 203,
-	"city": "São Paulo",
-	"state": "SP",
-	"zipcode": "0000123"
+	"student_id":2,
+	"user_id":2,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
 }
 ```
 
 ### Exemplo de resposta
 ```json
 {
-	"data": [
-		{
-			"id": 11,
-			"organization_type_id": 2,
-			"document_number": "2314678198",
-			"organization_name": "Bolinha",
-			"phone1": "12349080",
-			"phone2": null,
-			"fax": null,
-			"street": "Rua b do lado a",
-			"street_number": 203,
-			"city": "São Paulo",
-			"state": "SP",
-			"zipcode": "0000123",
-			"created_at": "2018-12-27T10:32:19.000Z",
-			"updated_at": "2018-12-27T10:32:19.000Z"
-		}
-	]
+	"process": {
+		"id": 2,
+		"student_id": 2,
+		"user_id": 2,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"justification_rejection": "Não possui documento tal",
+		"internship_process_type_id": 1,
+		"organizations_id": 11,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T15:58:15.000Z",
+		"updated_at": "2018-12-28T16:33:36.000Z"
+	}
 }
 ```
 **400** ```Bad Request```
