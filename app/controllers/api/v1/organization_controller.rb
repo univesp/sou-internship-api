@@ -15,17 +15,17 @@ class Api::V1::OrganizationController < ApplicationController
 		if organization.save
 			render json: {data:organization},status: :ok
 		else
-			render json: {data:organization},status: :unprocessable_entity
+			render json: {data:organization.errors},status: :unprocessable_entity
 		end
 	end
 
 	def update
 		organization = Organization.find(params[:id])
-
-		if organization.update_attributes(organization_params)
+		
+		if organization.update(organization_params)
 			render json: {data:organization},status: :ok
 		else
-			render json: {data:organization},status: :unprocessable_entity
+			render json: {data:organization.errors},status: :unprocessable_entity
 		end
 	end
 
@@ -38,14 +38,14 @@ class Api::V1::OrganizationController < ApplicationController
 	private
 
 		def organization_params
-			params.permit(
+			params.require(:organization).permit(
 				:organization_type_id,
 				:document_number,
 				:organization_name,
 				:phone1,
 				:phone2,
 				:fax,
-        :street,
+				:street,
 				:street_number,
 				:city,
 				:state,
