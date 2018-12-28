@@ -45,7 +45,7 @@ class Api::V1::OrganizationController < ApplicationController
 				:phone1,
 				:phone2,
 				:fax,
-        :street,
+				:street,
 				:street_number,
 				:city,
 				:state,
