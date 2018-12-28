@@ -33,6 +33,12 @@ HTTP requisição | Descrição | Exemplo
 **DELETE** /organization/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PATCH** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PUT** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
+**GET** /internship/process | Exibe todos organizações | *http://localhost:3001/api/v1/internship/process*
+**GET** /internship/process/{id} | Exibe a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**POST** /internship/process | Cria organização | *http://localhost:3001/api/v1/internship/process*
+**DELETE** /internship/process/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PATCH** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PUT** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
 
 ## Student
 
@@ -97,7 +103,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Estudante não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -148,7 +154,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Estudante não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -270,7 +276,7 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-**404** ```Concedente não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -364,7 +370,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Professor não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -425,7 +431,7 @@ Exibe os responsáveis cadastrados na base pelo id
 ```
 
 **500** ```Erro interno no servidor```
----
+
 **GET** /responsible/{id}
 ---
 Exibe o responsável
@@ -458,7 +464,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Responsavel não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -556,7 +562,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Responsavel não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -661,7 +667,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Processo não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -789,7 +795,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -916,7 +922,7 @@ Nome | Tipo | Descrição | Exemplo
 }
 ```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -969,7 +975,7 @@ Nome | Tipo | Descrição | Exemplo
 
 **422** ```Unprocessable Entity```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
 
@@ -1031,6 +1037,337 @@ Nome | Tipo | Descrição | Exemplo
 
 **422** ```Unprocessable Entity```
 
-**404** ```Organização não encontrado```
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+## Internship Process
+
+**GET** /internship/process
+---
+Exibe os processos de estágio
+
+Exibe todos os processos de estágio cadastradas na base
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"processes": [
+		{
+			"id": 2,
+			"student_id": 1,
+			"user_id": 1,
+			"organizations_id": 11,
+			"internship_process_type_id": 1,
+			"internship_responsible": "1",
+			"phone1": null,
+			"phone2": null,
+			"email_internship_responsible": "teste@teste.com",
+			"accept_terms": 1,
+			"approved_hours": null,
+			"status": 0,
+			"created_at": "2018-12-28T15:58:15.000Z",
+			"updated_at": "2018-12-28T15:58:15.000Z",
+			"justification_rejection": null
+		},
+		{
+			"id": 1,
+			"student_id": 10,
+			"user_id": 10,
+			"organizations_id": 13,
+			"internship_process_type_id": 1,
+			"internship_responsible": "1",
+			"phone1": "124244525",
+			"phone2": null,
+			"email_internship_responsible": "testei@teste.com",
+			"accept_terms": 1,
+			"approved_hours": 100,
+			"status": 0,
+			"created_at": "2018-12-28T13:42:06.000Z",
+			"updated_at": "2018-12-28T16:12:03.000Z",
+			"justification_rejection": null
+		}
+	]
+}
+```
+
+**500** ```Erro interno no servidor```
+
+**GET** /internship/process/{id}
+---
+Exibe o processo de estágio
+
+Exibe o processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/1*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"id": 1,
+		"student_id": 10,
+		"user_id": 10,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": null,
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": 100,
+		"status": 0,
+		"created_at": "2018-12-28T13:42:06.000Z",
+		"updated_at": "2018-12-28T16:12:03.000Z",
+		"justification_rejection": null
+	}
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**POST** /internship/process
+---
+Cria o processo de estágio
+
+Cria o processo de estágio com base nas informações inputadas 
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerida no PATH | *http://localhost:3001/api/v1/internship/process*
+  | **Json** | requerido no body | objeto json
+
+### Status code
+**200** ```OK```
+
+### Body
+```json
+{
+	"student_id":2,
+	"user_id":2,
+	"organizations_id":13,
+	"internship_process_type_id":1,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"id": 3,
+		"student_id": 2,
+		"user_id": 2,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T16:27:56.000Z",
+		"updated_at": "2018-12-28T16:27:56.000Z",
+		"justification_rejection": "Não possui documento tal"
+	}
+}
+```
+### Body
+
+**422** ```Unprocessable Entity```
+```json
+{
+	"student_id":2,
+	"user_id":2,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"internship_process_type": [
+			"must exist"
+		]
+	}
+}
+```
+
+**400** ```Bad Request```
+
+**500** ```Erro interno no servidor```
+
+**DELETE** /internship/process/{id}
+---
+Exclui o processo de estágio
+
+Exclui o processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/3*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"id": 3,
+		"student_id": 2,
+		"user_id": 2,
+		"organizations_id": 13,
+		"internship_process_type_id": 1,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T16:27:56.000Z",
+		"updated_at": "2018-12-28T16:27:56.000Z",
+		"justification_rejection": "Não possui documento tal"
+	}
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PATCH** /internship/process/{id}
+---
+Atualiza o processo de estágio
+
+Atualiza parcialmente dados do processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/2*
+ **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+  "justification_rejection": "Não possui documento tal"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"id": 2,
+		"justification_rejection": "Não possui documento tal",
+		"internship_process_type_id": 1,
+		"student_id": 1,
+		"user_id": 1,
+		"organizations_id": 11,
+		"internship_responsible": "1",
+		"phone1": null,
+		"phone2": null,
+		"email_internship_responsible": "teste@teste.com",
+		"accept_terms": 1,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T15:58:15.000Z",
+		"updated_at": "2018-12-28T16:32:13.000Z"
+	}
+}
+```
+
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PUT** /internship/process/{id}
+---
+Atualiza o processo de estágio
+
+Atualiza todos dados do processo de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/11*
+ **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+	"student_id":2,
+	"user_id":2,
+	"internship_responsible":1,
+	"phone1":"124244525",
+	"phone2":"000000000",
+	"email_internship_responsible":"testei@teste.com",
+	"accept_terms":1,
+	"justification_rejection": "Não possui documento tal"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+	"process": {
+		"id": 2,
+		"student_id": 2,
+		"user_id": 2,
+		"internship_responsible": "1",
+		"phone1": "124244525",
+		"phone2": "000000000",
+		"email_internship_responsible": "testei@teste.com",
+		"accept_terms": 1,
+		"justification_rejection": "Não possui documento tal",
+		"internship_process_type_id": 1,
+		"organizations_id": 11,
+		"approved_hours": null,
+		"status": 0,
+		"created_at": "2018-12-28T15:58:15.000Z",
+		"updated_at": "2018-12-28T16:33:36.000Z"
+	}
+}
+```
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```

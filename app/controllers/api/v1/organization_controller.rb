@@ -1,6 +1,6 @@
 class Api::V1::OrganizationController < ApplicationController
 	def index
-		organizations = Organization.order('created_at DESC');
+		organizations = Organization.order('created_at ASC');
 		render json: {data:organizations},status: :ok
 	end
 
