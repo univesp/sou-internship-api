@@ -1,7 +1,7 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
   def index
-    processes = InternshipProcess.order('created_at DESC');
+    processes = InternshipProcess.order('created_at ASC');
     render json: {processes:processes},status: :ok
   end
 
