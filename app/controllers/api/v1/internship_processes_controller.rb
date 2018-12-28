@@ -1,4 +1,4 @@
-class Api::V1::InternshipProcessController < ApplicationController
+class Api::V1::InternshipProcessesController < ApplicationController
     
   def index
     processes = InternshipProcess.order('created_at DESC');
@@ -40,17 +40,18 @@ class Api::V1::InternshipProcessController < ApplicationController
 
     def process_params
       params.require(:internship_process).permit(
-        :organization_type_id,
-        :document_number,
-        :organization_name,
+        :student_id,
+        :user_id,
+        :organizations_id,
+        :internship_process_type_id,
+        :internship_responsible,
         :phone1,
         :phone2,
-        :fax,
-        :street,
-        :street_number,
-        :city,
-        :state,
-        :zipcode
+        :email_internship_responsible,
+        :accept_terms,
+        :approved_hours,
+        :status,
+        :justification_rejection
       )
     end
 end
