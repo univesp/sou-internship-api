@@ -33,12 +33,12 @@ HTTP requisição | Descrição | Exemplo
 **DELETE** /organization/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PATCH** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
 **PUT** /organization/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/organization/{id}*
-**GET** /internship/process | Exibe todos organizações | *http://localhost:3001/api/v1/internship/process*
-**GET** /internship/process/{id} | Exibe a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
-**POST** /internship/process | Cria organização | *http://localhost:3001/api/v1/internship/process*
-**DELETE** /internship/process/{id} | Exclui a organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
-**PATCH** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
-**PUT** /internship/process/{id} | Atualiza organização pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**GET** /internship/process | Exibe todos processos de estágio | *http://localhost:3001/api/v1/internship/process*
+**GET** /internship/process/{id} | Exibe processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**POST** /internship/process | Cria processo de estágio | *http://localhost:3001/api/v1/internship/process*
+**DELETE** /internship/process/{id} | Exclui processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PATCH** /internship/process/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**PUT** /internship/process/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
 
 ## Student
 
@@ -1271,7 +1271,7 @@ Atualiza parcialmente dados do processo de estágio cadastrada na base pelo id
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/2*
- **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+ **atributo** | **Json** | requerido no body | "internship_responsible":1
 ###  Status Code
 
 **200** ```OK```
@@ -1323,7 +1323,7 @@ Atualiza todos dados do processo de estágio cadastrada na base pelo id
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/11*
- **atributo** | **Json** | requerido no body | "organization_name":"Astronauta"
+ **atributo** | **Json** | requerido no body | "internship_responsible":1
 ###  Status Code
 
 **200** ```OK```
