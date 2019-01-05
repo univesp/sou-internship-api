@@ -11,6 +11,6 @@
 #
 
 class InternshipDocument < ApplicationRecord
-  belongs_to :internship_process
-  belongs_to :document_type
+  belongs_to :internship_process, foreign_key: "internship_process_id"
+  belongs_to :document_type, foreign_key: "document_type_id"
 end
