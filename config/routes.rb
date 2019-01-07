@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       delete 'internship/process/:id', to: "internship_processes#destroy"
 
       # get 'grantor/:id',  to: 'grantor#reset',
-      resources :grantor, :professor, :responsible, :advisor, :process, :organization
+      resources :grantor, :professor, :responsible, :advisor, :process, :organization, :internship_document
     end
   end
 end

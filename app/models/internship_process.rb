@@ -5,7 +5,7 @@
 #  id                           :integer          not null, primary key
 #  student_id                   :integer
 #  user_id                      :integer
-#  organizations_id             :integer          not null
+#  organization_id              :integer          not null
 #  internship_process_type_id   :integer          not null
 #  internship_responsible       :string(255)
 #  phone1                       :string(45)
