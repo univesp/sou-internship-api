@@ -21,5 +21,5 @@
 class Organization < ApplicationRecord
   belongs_to :organization_type, foreign_key: "organization_type_id"
   
-  belongs_to :internship_process
+  has_many :internship_process
 end
