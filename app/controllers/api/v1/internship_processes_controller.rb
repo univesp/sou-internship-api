@@ -36,13 +36,19 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render json: {process:process},status: :ok
   end
 
+  def show_processes_by_student
+    process = InternshipProcess.where(student_id: params[:student_id])
+    render json: {process:process},status: :ok
+  end
+
   private
 
     def process_params
       params.require(:internship_process).permit(
+        :id,
         :student_id,
         :user_id,
-        :organizations_id,
+        :organization_id,
         :internship_process_type_id,
         :internship_responsible,
         :phone1,
