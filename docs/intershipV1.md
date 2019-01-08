@@ -39,6 +39,12 @@ HTTP requisição | Descrição | Exemplo
 **DELETE** /internship/process/{id} | Exclui processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
 **PATCH** /internship/process/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
 **PUT** /internship/process/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/process/{id}*
+**GET** /internship/documents | Exibe todos os documentos de estágio | *http://localhost:3001/api/v1/internship/documents*
+**GET** /internship/document/{id} | Exibe todos os documentos de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
+**POST** /internship/document | Cria processo de estágio | *http://localhost:3001/api/v1/internship/document*
+**DELETE** /internship/document/{id} | Exclui processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
+**PATCH** /internship/document/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
+**PUT** /internship/document/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
 
 ## Student
 
@@ -1422,10 +1428,234 @@ Nome | Tipo | Descrição | Exemplo
             "status": 0,
             "justification_rejection": "Não possui documento tal",
             "created_at": "2019-01-08T11:40:26.000Z",
-            "updated_at": "2019-01-08T11:40:26.000Z"
-        }
-    ]
+			"updated_at": "2019-01-08T11:40:26.000Z"
+		}
+	]
 }
 ```
+
+**500** ```Erro interno no servidor```
+
+## Internship document
+
+**GET** /internship/documents
+---
+Exibe os documentos de estágio
+
+Exibe todos os documentos de estágio cadastradas na base
+
+**GET** /internship/document/{id}
+---
+Exibe o documento de estágio
+
+Exibe o documento de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/document/1*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+      "id": 1,
+      "internship_process_id": 1,
+      "document_type_id": 1,
+      "attachment": "1823981u3j1o2jo21knm3o12m30o21m31o230987210391203981023l",
+      "created_at": "2019-01-04T16:15:16.000Z",
+      "updated_at": "2019-01-04T16:15:16.000Z"
+  }
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**POST** /internship/document
+---
+Cria o documento(s) de estágio
+
+Cria o documento(s) de estágio com base nas informações inputadas 
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerida no PATH | *http://localhost:3001/api/v1/internship/document*
+  | **Json** | requerido no body | objeto json
+
+
+### Status code
+**200** ```OK```
+
+### Body
+```json
+{
+    "internship_process_id": 2,
+    "document_type_id": 2,
+    "attachment": "ExemploExemploExemploExemploExemploExemploExemploExemplo"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+      "id": 6,
+      "internship_process_id": 2,
+      "document_type_id": 2,
+      "attachment": "ExemploExemploExemploExemploExemploExemploExemploExemplo",
+      "created_at": "2019-01-08T12:29:29.000Z",
+      "updated_at": "2019-01-08T12:29:29.000Z"
+  }
+}
+```
+
+**422** ```Unprocessable Entity```
+
+### Exemplo de Body
+
+```json
+{
+    "internship_process_id": 2,
+    "document_type_id": 100,
+    "attachment": "ExemploExemploExemploExemploExemploExemploExemploExemplo"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+    "document_type": [
+        "must exist"
+    ]
+  }
+}
+```
+
+**400** ```Bad Request```
+
+**500** ```Erro interno no servidor```
+
+**DELETE** /internship/document/{id}
+---
+Exclui o documento do estágio
+
+Exclui o documento do estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/document/6*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+    "id": 6,
+    "internship_process_id": 2,
+    "document_type_id": 2,
+    "attachment": "ExemploExemploExemploExemploExemploExemploExemploExemplo",
+    "created_at": "2019-01-08T12:29:29.000Z",
+    "updated_at": "2019-01-08T12:29:29.000Z"
+  }
+}
+```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PATCH** /internship/document/{id}
+---
+Atualiza o documento de estágio
+
+Atualiza parcialmente dados do documento de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/document/2*
+ **atributo** | **Json** | requerido no body | "attachment": "tytytytytytytytytytytytyt"
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+    "attachment": "tytytytytytytytytytytytyt"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+    "id": 2,
+    "attachment": "tytytytytytytytytytytytyt",
+    "internship_process_id": 2,
+    "document_type_id": 2,
+    "created_at": "2019-01-04T16:56:52.000Z",
+    "updated_at": "2019-01-08T12:42:22.000Z"
+  }
+}
+```
+
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**PUT** /internship/document/{id}
+---
+Atualiza o documento de estágio
+
+Atualiza todos dados do documento de estágio cadastrada na base pelo id
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/document/5*
+ **atributo** | **Json** | requerido no body |
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de body
+```json
+{
+    "internship_process_id": 2,
+    "document_type_id": 1,
+    "attachment": "xxxxxxxxxxxxxxxxxxxx"
+}
+```
+
+### Exemplo de resposta
+```json
+{
+  "document": {
+    "id": 5,
+    "internship_process_id": 2,
+    "document_type_id": 1,
+    "attachment": "xxxxxxxxxxxxxxxxxxxx",
+    "created_at": "2019-01-05T19:35:32.000Z",
+    "updated_at": "2019-01-08T12:49:40.000Z"
+  }
+}
+```
+**400** ```Bad Request```
+
+**422** ```Unprocessable Entity```
+
+**404** ```Not Found```
 
 **500** ```Erro interno no servidor```
