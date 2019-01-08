@@ -1061,7 +1061,7 @@ Exibe todos os processos de estágio cadastradas na base
 			"id": 2,
 			"student_id": 1,
 			"user_id": 1,
-			"organizations_id": 11,
+			"organization_id": 11,
 			"internship_process_type_id": 1,
 			"internship_responsible": "1",
 			"phone1": null,
@@ -1078,7 +1078,7 @@ Exibe todos os processos de estágio cadastradas na base
 			"id": 1,
 			"student_id": 10,
 			"user_id": 10,
-			"organizations_id": 13,
+			"organization_id": 13,
 			"internship_process_type_id": 1,
 			"internship_responsible": "1",
 			"phone1": "124244525",
@@ -1118,7 +1118,7 @@ Nome | Tipo | Descrição | Exemplo
 		"id": 1,
 		"student_id": 10,
 		"user_id": 10,
-		"organizations_id": 13,
+		"organization_id": 13,
 		"internship_process_type_id": 1,
 		"internship_responsible": "1",
 		"phone1": "124244525",
@@ -1157,7 +1157,7 @@ Nome | Tipo | Descrição | Exemplo
 {
 	"student_id":2,
 	"user_id":2,
-	"organizations_id":13,
+	"organization_id":13,
 	"internship_process_type_id":1,
 	"internship_responsible":1,
 	"phone1":"124244525",
@@ -1175,7 +1175,7 @@ Nome | Tipo | Descrição | Exemplo
 		"id": 3,
 		"student_id": 2,
 		"user_id": 2,
-		"organizations_id": 13,
+		"organization_id": 13,
 		"internship_process_type_id": 1,
 		"internship_responsible": "1",
 		"phone1": "124244525",
@@ -1242,7 +1242,7 @@ Nome | Tipo | Descrição | Exemplo
 		"id": 3,
 		"student_id": 2,
 		"user_id": 2,
-		"organizations_id": 13,
+		"organization_id": 13,
 		"internship_process_type_id": 1,
 		"internship_responsible": "1",
 		"phone1": "124244525",
@@ -1292,7 +1292,7 @@ Nome | Tipo | Descrição | Exemplo
 		"internship_process_type_id": 1,
 		"student_id": 1,
 		"user_id": 1,
-		"organizations_id": 11,
+		"organization_id": 11,
 		"internship_responsible": "1",
 		"phone1": null,
 		"phone2": null,
@@ -1356,7 +1356,7 @@ Nome | Tipo | Descrição | Exemplo
 		"accept_terms": 1,
 		"justification_rejection": "Não possui documento tal",
 		"internship_process_type_id": 1,
-		"organizations_id": 11,
+		"organization_id": 11,
 		"approved_hours": null,
 		"status": 0,
 		"created_at": "2018-12-28T15:58:15.000Z",
@@ -1369,5 +1369,63 @@ Nome | Tipo | Descrição | Exemplo
 **422** ```Unprocessable Entity```
 
 **404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
+**GET** /internship/process/student/{student_id}
+---
+Exibe os processos de estágio do aluno
+
+Exibe todos os processos de estágio do aluno cadastrados na base
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **student_id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/student/10*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+    "process": [
+        {
+            "id": 1,
+            "student_id": 10,
+            "user_id": 10,
+            "organization_id": 13,
+            "internship_process_type_id": 1,
+            "internship_responsible": "1",
+            "phone1": "124244525",
+            "phone2": null,
+            "email_internship_responsible": "testei@teste.com",
+            "accept_terms": 1,
+            "approved_hours": 100,
+            "status": 0,
+            "justification_rejection": null,
+            "created_at": "2018-12-28T13:42:06.000Z",
+            "updated_at": "2018-12-28T16:12:03.000Z"
+        },
+        {
+            "id": 4,
+            "student_id": 10,
+            "user_id": 2,
+            "organization_id": 9,
+            "internship_process_type_id": 1,
+            "internship_responsible": "1",
+            "phone1": "124244525",
+            "phone2": "000000000",
+            "email_internship_responsible": "testei@teste.com",
+            "accept_terms": 1,
+            "approved_hours": null,
+            "status": 0,
+            "justification_rejection": "Não possui documento tal",
+            "created_at": "2019-01-08T11:40:26.000Z",
+            "updated_at": "2019-01-08T11:40:26.000Z"
+        }
+    ]
+}
+```
 
 **500** ```Erro interno no servidor```
