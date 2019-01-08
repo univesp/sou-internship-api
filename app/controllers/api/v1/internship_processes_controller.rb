@@ -45,7 +45,6 @@ class Api::V1::InternshipProcessesController < ApplicationController
 
     def process_params
       params.require(:internship_process).permit(
-        :id,
         :student_id,
         :user_id,
         :organization_id,
