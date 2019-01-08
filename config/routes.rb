@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root "base#index"
+  root 'application#route_not_found'
   namespace :api do
-    get "/", to: "base#index"
     namespace :v1, defaults: { format: :json } do
 
       get "student/:id", to: "student#student_data"
@@ -26,4 +25,5 @@ Rails.application.routes.draw do
       resources :grantor, :professor, :responsible, :advisor, :process, :organization
     end
   end
+  match '*unmatched', to: 'application#route_not_found', via: :all
 end
