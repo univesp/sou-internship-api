@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       patch 'internship/process/:id', to: 'internship_processes#update'
       put 'internship/process/:id', to: 'internship_processes#update'
       delete 'internship/process/:id', to: 'internship_processes#destroy'
-      get 'internship/process/student/:student_id', to: 'internship_processes#show_processes_by_student'
+      get 'internship/document/process/:id', to: 'internship_processes#show_documents_and_organization_by_process_id'
 
       # internship/document
       get 'internship/documents', to: "internship_document#index"
