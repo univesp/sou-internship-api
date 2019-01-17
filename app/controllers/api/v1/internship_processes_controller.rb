@@ -41,7 +41,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
     organization = Organization.where(:id => process.organization_id)
     document = InternshipDocument.where(:internship_process_id => process.id)
 
-    render json: {organization:organization,document:document},status: :ok
+    render json: {process:process,organization:organization,document:document},status: :ok
   end
 
   private
