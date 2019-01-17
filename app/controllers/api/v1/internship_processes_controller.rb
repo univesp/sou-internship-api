@@ -44,6 +44,14 @@ class Api::V1::InternshipProcessesController < ApplicationController
                          :organization => {:only => :organization_name}},
            :except => [:created_at, :updated_at], status: :ok
   end
+  
+  def show_documents_and_organization_by_process_id
+    process = InternshipProcess.find(params[:id])
+    organization = Organization.where(:id => process.organization_id)
+    document = InternshipDocument.where(:internship_process_id => process.id)
+
+    render json: {process:process,organization:organization,document:document},status: :ok
+  end
 
   private
 
