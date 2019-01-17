@@ -36,6 +36,15 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render json: {process:process},status: :ok
   end
 
+  def show_processes_by_student
+    internshipProcess = InternshipProcess.where(student_id: params[:student_id])
+
+    render :json => internshipProcess, 
+           :include => { :internship_process_type => {:only => :name}, 
+                         :organization => {:only => :organization_name}},
+           :except => [:created_at, :updated_at], status: :ok
+  end
+  
   def show_documents_and_organization_by_process_id
     process = InternshipProcess.find(params[:id])
     organization = Organization.where(:id => process.organization_id)
