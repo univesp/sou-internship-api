@@ -42,7 +42,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render :json => internshipProcess, 
            :include => { :internship_process_type => {:only => :name}, 
                          :organization => {:only => :organization_name}},
-           :except => [:created_at, :updated_at], status: :ok
+           :except => [:updated_at], status: :ok
   end
   
   def show_documents_and_organization_by_process_id
