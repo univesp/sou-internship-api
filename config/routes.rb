@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       patch 'internship/document/:id', to: "internship_document#update"
       put 'internship/document/:id', to: "internship_document#update"
       delete 'internship/document/:id', to: "internship_document#destroy"
+      get 'student', to: 'internship_processes#show_student'
 
       # get 'grantor/:id',  to: 'grantor#reset',
       resources :grantor, :professor, :responsible, :advisor, :process, :organization

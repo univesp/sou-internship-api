@@ -53,6 +53,11 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render json: {process:process,organization:organization,document:document},status: :ok
   end
 
+  def show_student
+    student = Student.order('created_at ASC');
+    render json: {student:student}, status: :ok
+  end
+
   private
 
     def process_params
