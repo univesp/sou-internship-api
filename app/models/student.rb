@@ -1,0 +1,3 @@
+class Student < SgaDatabase
+  
+end
