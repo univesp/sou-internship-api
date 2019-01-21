@@ -21,7 +21,7 @@
 
 class InternshipProcess < ApplicationRecord
   belongs_to :internship_process_type, foreign_key: "internship_process_type_id"
-  has_many :organization, foreign_key: "organization_id"
+  belongs_to :organization, foreign_key: "organization_id"
 
   has_many :internship_process_histories
   has_many :internship_documents
