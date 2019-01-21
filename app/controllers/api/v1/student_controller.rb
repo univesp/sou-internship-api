@@ -1,6 +1,6 @@
 class Api::V1::StudentController < ApplicationController
 
-  # "student/:id/processes", to "student#processes"
+  # "student/:id/processes", to "student#processes" Mock
   # 0 = 'Em análise', 1 = 'Deferido',  2 = 'Indeferido' 3 = 'Pendente' (references for status)
   def processes
 		@processes = {
@@ -35,51 +35,8 @@ class Api::V1::StudentController < ApplicationController
 
   end
 
-  # "student/:id", to "student#student_data"
-  def student_data
-    @student_data = {
-      "studentData": [ 
-        {
-          "id": 1,
-          "firstName": "Alice",
-          "lastName": "Pereira Rodrigues",
-          "assumedName": "",
-          "birthDate": "1989-01-06",
-          "gender": "F", 
-          "countryBirth": "Brasil",
-          "nationality": "Brasileira",
-          "race": 0, 
-          "marital": 2, 
-          "bloodType": 2, 
-          "organDonor": true, 
-          "cellphone": "35992755126",
-          "personalEmail": "alicepereirarodrigues@outlook.com",
-          "professionalEmail": "alice.rodrigues@jourrapide.com",
-          "documents": {
-            "rg": {
-              "number": "273044576",
-              "issuer": "SSP"
-            },
-            "cpf": "17143053929",
-            "electoralCard": "516485230175", 
-            "certificateReservist": "",
-          }, 
-          "parents": {
-            "motherName": "Joana Pereira Rodrigues",
-            "fatherName": "Jurandir Oliveira Rodrigues"
-          },
-          "address": {
-            "street": "Rua da Vitória",
-            "number": "66",
-            "zip": "07600100",
-            "district": "Anhangabau",
-            "city": "São Paulo",
-            "state": "SP"
-          }
-        }
-      ]
-    }
-    render json: @student_data
+  def show
+    student = Student.find(params[:id])
+    render json: {student:student}, status: :ok
   end
-  
 end
