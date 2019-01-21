@@ -67,46 +67,46 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de resposta
 ```json
 {
-	"studentData": [
-		{
-			"id": 1,
-			"firstName": "Alice",
-			"lastName": "Pereira Rodrigues",
-			"assumedName": "",
-			"birthDate": "1989-01-06",
-			"gender": "F",
-			"countryBirth": "Brasil",
-			"nationality": "Brasileira",
-			"race": 0,
-			"marital": 2,
-			"bloodType": 2,
-			"organDonor": true,
-			"cellphone": "35992755126",
-			"personalEmail": "alicepereirarodrigues@outlook.com",
-			"professionalEmail": "alice.rodrigues@jourrapide.com",
-			"documents": {
-				"rg": {
-					"number": "273044576",
-					"issuer": "SSP"
-				},
-				"cpf": "17143053929",
-				"electoralCard": "516485230175",
-				"certificateReservist": ""
-			},
-			"parents": {
-				"motherName": "Joana Pereira Rodrigues",
-				"fatherName": "Jurandir Oliveira Rodrigues"
-			},
-			"address": {
-				"street": "Rua da Vitória",
-				"number": "66",
-				"zip": "07600100",
-				"district": "Anhangabau",
-				"city": "São Paulo",
-				"state": "SP"
-			}
-		}
-	]
+    "student": {
+        "id": 65539,
+        "course_class_id": 1515,
+        "ethnicity_id": null,
+        "marital_status_id": null,
+        "countriy_id": null,
+        "address_id": 130,
+        "city_id": null,
+        "name": "Emerson Martins",
+        "last_name": null,
+        "cpf": "8383187890",
+        "academic_register": 1829070,
+        "birth_date": "1972-08-16",
+        "flag_on": 1,
+        "blood_type": null,
+        "organ_donor": null,
+        "assumed_name": null,
+        "gender": "M",
+        "students_type": "regular",
+        "current_status": "enrolled",
+        "flag_pwd": 0,
+        "flag_blindness": 0,
+        "flag_vision_impairment": 0,
+        "flag_deafness": 0,
+        "flag_hearing": 0,
+        "flag_physical_disability": 0,
+        "flag_deafblindness": 0,
+        "flag_multiple": 0,
+        "flag_intellectual": 0,
+        "flag_autism": 0,
+        "flag_asperger": 0,
+        "flag_rett": 0,
+        "flag_childhood_disintegrative_disease": 0,
+        "flag_giftedness": 0,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null,
+        "flag_ppi": 0,
+        "id_legacy": 52045
+    }
 }
 ```
 **404** ```Not Found```
