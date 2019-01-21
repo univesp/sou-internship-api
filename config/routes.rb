@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root 'application#route_not_found'
   namespace :api do
     namespace :v1, defaults: { format: :json } do
-      get "student/:id", to: "student#student_data"
+      # student
       get "student/:id/processes", to: "student#processes"
-      
+      get 'student/:id', to: 'student#show'
+
       # internship/process
       get 'internship/process', to: 'internship_processes#index'
       get 'internship/process/:id', to: 'internship_processes#show'
