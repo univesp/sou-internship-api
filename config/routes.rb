@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       delete 'internship/process/:id', to: 'internship_processes#destroy'
       get 'internship/process/:id/organization/document', to: 'internship_processes#show_documents_and_organization_by_process_id'
       get 'internship/process/student/:student_id', to: 'internship_processes#show_processes_by_student'
+      get 'internship/process/info/:student_id', to: 'internship_processes#show_process_organization_employe'
       # internship/document
       get 'internship/documents', to: "internship_document#index"
       get 'internship/document/:id', to: "internship_document#show"

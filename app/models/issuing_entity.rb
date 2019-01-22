@@ -1,0 +1,3 @@
+class IssuingEntity < SgaDatabase
+  
+end

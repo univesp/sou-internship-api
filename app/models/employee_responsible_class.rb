@@ -1,0 +1,3 @@
+class EmployeeResponsibleClass < SgaDatabase
+  
+end

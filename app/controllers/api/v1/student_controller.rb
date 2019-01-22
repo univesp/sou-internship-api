@@ -36,7 +36,11 @@ class Api::V1::StudentController < ApplicationController
   end
 
   def show
-    student = Student.find(params[:id])
-    render json: {student:student}, status: :ok
+    student = Student.select(:name, :last_name, :id, :birth_date, :course_class_id).find(params[:id])
+    courseClass = CourseClass.where(:id => student.course_class_id)
+    course = Course.where(:id => courseClass[0].course_id)
+    studentIdentify = StudentXIdentify.where(:student_id => student.id)
+    identity = Identity.select(:number).where(:id => studentIdentify[0].identity_id)
+    render json: {student:student,course:course,identity:identity}, status: :ok
   end
 end

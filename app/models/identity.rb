@@ -1,0 +1,3 @@
+class Identity < SgaDatabase
+  
+end
