@@ -16,7 +16,7 @@ Não é requerida autorização.
 HTTP requisição | Descrição | Exemplo
 ------------- | ------------- | -------------
 **GET** /student/{id} | Exibe o estudante pelo id | *http://localhost:3001/api/v1/student/1*
-**GET** /student/{id}/processes | Exibe os processos do estudante pelo id | *http://localhost:3001/api/v1/student*
+**GET** /student/process/{id} | Exibe os processos do estudante pelo id | *http://localhost:3001/api/v1/student/process/{id}*
 **GET** /grantor | Exibe todos concedentes | *http://localhost:3001/api/v1/grantor*
 **GET** /grantor/{id} | Exibe o concedente pelo id | *http://localhost:3001/api/v1/grantor/{id}*
 **GET** /professor | Exibe todos professores | *http://localhost:3001/api/v1/professor*
@@ -113,7 +113,7 @@ Nome | Tipo | Descrição | Exemplo
 
 **500** ```Erro interno no servidor```
 
-**GET** /student/{id}/processes
+**GET** /student/process/{id}
 ---
 Exibe os processos do estudante
 
@@ -123,7 +123,7 @@ Exibe os processos do estudante pelo seu id
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/student/1/processes*
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/student/process/1*
 
 ### Status Code
 
@@ -132,32 +132,142 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de resposta
 ```json
 {
-	"processes": [
-		{
-			"id": 1,
-			"type": 0,
-			"status": 0,
-			"created_at": "2018-12-17",
-			"student_id": 1,
-			"responsible_id": 1,
-			"grantor_id": 1,
-			"advisor_id": 1,
-			"professor_id": 1,
-			"moderator_name": "Marcos Ferreira Almeida"
-	},
-	{
-			"id": 2,
-			"type": 0,
-			"status": 1,
-			"created_at": "2018-12-20",
-			"student_id": 1,
-			"responsible_id": 1,
-			"grantor_id": 1,
-			"advisor_id": 1,
-			"professor_id": 1,
-			"moderator_name": "Tânia Cunha Castro"
-		}
-	]
+    "process": {
+        "id": 10,
+        "student_id": 6,
+        "user_id": 10,
+        "organization_id": 16,
+        "internship_process_type_id": 1,
+        "internship_responsible": "1",
+        "phone1": null,
+        "phone2": null,
+        "email_internship_responsible": null,
+        "accept_terms": null,
+        "approved_hours": null,
+        "status": 0,
+        "justification_rejection": null,
+        "created_at": "2019-01-09T16:46:17.000Z",
+        "updated_at": "2019-01-23T12:35:38.000Z"
+    },
+    "course": [
+        {
+            "id": 15,
+            "name": "Pedagogia",
+            "duration_semesters": "8",
+            "course_type": "Undergraduation",
+            "created_at": "2018-12-13T18:54:38.000Z",
+            "updated_at": null,
+            "deleted_at": null
+        }
+    ],
+    "student": [
+        {
+            "id": 6,
+            "course_class_id": 474,
+            "countriy_id": 135,
+            "address_id": 127,
+            "city_id": 1,
+            "name": "José do Picadinho Jr",
+            "last_name": null,
+            "cpf": "00000000000",
+            "birth_date": "1988-08-25",
+            "assumed_name": "Zé do Picadinho"
+        }
+    ],
+    "address": [
+        {
+            "id": 127,
+            "city_id": null,
+            "neighborhood": "CENTRO",
+            "street": "rua espirito santo",
+            "street_number": "5",
+            "street_type": null,
+            "zipcode": "18700-060",
+            "street_complement": "casa",
+            "state": "SP",
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null
+        }
+    ],
+    "identity": [
+        {
+            "id": 7793,
+            "issuing_entity_id": 1,
+            "number": "125.023.781-X"
+        }
+    ],
+    "identityEmissor": [
+        {
+            "id": 1,
+            "name": "SSP - Secretaria de Segurança Pública"
+        }
+    ],
+    "mother": [
+        {
+            "id": 1,
+            "name": "Maria Caçarola"
+        }
+    ],
+    "father": [
+        {
+            "id": 73727,
+            "name": "José do Picadinho"
+        }
+    ],
+    "country": [
+        {
+            "id": 135,
+            "portuguese_name": "Brasil"
+        }
+    ],
+    "city": [
+        {
+            "id": 1,
+            "name": "São Paulo"
+        }
+    ],
+    "telephone": [
+        {
+            "id": 1,
+            "ddd": "11",
+            "telephones": "912345678"
+        }
+    ],
+    "email": [
+        {
+            "id": 1,
+            "email": "teste@teste.com"
+        }
+    ],
+    "organization": [
+        {
+            "id": 16,
+            "organization_type_id": 1,
+            "document_number": "12345678901231",
+            "organization_name": "Teste",
+            "phone1": "12345677890",
+            "phone2": "",
+            "fax": "",
+            "street": "Rua Ituacu",
+            "street_number": 22,
+            "city": "São Paulo",
+            "state": "SP",
+            "zipcode": "08110110",
+            "created_at": "2019-01-08T16:04:21.000Z",
+            "updated_at": "2019-01-08T16:04:21.000Z"
+        }
+    ],
+    "document": [
+        {
+            "id": 7,
+            "internship_process_id": 10,
+            "document_type_id": 2,
+            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoNCjw8DQovVHlwZSAvQ2F0YWxvZw0KL091dGxpbmVzIDIgMCBSDQovUGFnZXMg",
+            "created_at": "2019-01-09T17:36:39.000Z",
+            "updated_at": "2019-01-09T17:36:39.000Z"
+        }
+    ]
 }
 ```
 **404** ```Not Found```
@@ -1493,13 +1603,84 @@ Nome | Tipo | Descrição | Exemplo
             "id": 7,
             "internship_process_id": 15,
             "document_type_id": 2,
-            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoNCjw8DQovVHlwZSAvQ2F0YWxvZw0KL091dGxpbmVzIDIgMCBSDQovUGFnZXMgMyAwIFINCj4+DQplbmRvYmoNCg0KMiAwIG9iag0KPDwNCi9UeXBlIC9PdXRsaW5lcw0KL0NvdW50IDANCj4+DQplbmRvYmoNCg0KMyAwIG9iag0KPDwNCi9UeXBlIC9QYWdlcw0KL0NvdW50IDINCi9LaWRzIFsgNCAwIFIgNiAwIFIgXSANCj4+DQplbmRvYmoNCg0KNCAwIG9iag0KPDwNCi9UeXBlIC9QYWdlDQovUGFyZW50IDMgMCBSDQovUmVzb3VyY2VzIDw8DQovRm9udCA8PA0KL0YxIDkgMCBSIA0KPj4NCi9Qcm9jU2V0IDggMCBSDQo+Pg0KL01lZGlhQm94IFswIDAgNjEyLjAwMDAgNzkyLjAwMDBdDQovQ29udGVudHMgNSAwIFINCj4+DQplbmRvYmoNCg0KNSAwIG9iag0KPDwgL0xlbmd0aCAxMDc0ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBBIFNpbXBsZSBQREYgRmlsZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIFRoaXMgaXMgYSBzbWFsbCBkZW1vbnN0cmF0aW9uIC5wZGYgZmlsZSAtICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjY0LjcwNDAgVGQNCigganVzdCBmb3IgdXNlIGluIHRoZSBWaXJ0dWFsIE1lY2hhbmljcyB0dXRvcmlhbHMuIE1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NTIuNzUyMCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDYyOC44NDgwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjE2Ljg5NjAgVGQNCiggdGV4dC4gQW5kIG1vcmUgdGV4dC4gQm9yaW5nLCB6enp6ei4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjA0Ljk0NDAgVGQNCiggbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDU5Mi45OTIwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNTY5LjA4ODAgVGQNCiggQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA1NTcuMTM2MCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBFdmVuIG1vcmUuIENvbnRpbnVlZCBvbiBwYWdlIDIgLi4uKSBUag0KRVQNCmVuZHN0cmVhbQ0KZW5kb2JqDQoNCjYgMCBvYmoNCjw8DQovVHlwZSAvUGFnZQ0KL1BhcmVudCAzIDAgUg0KL1Jlc291cmNlcyA8PA0KL0ZvbnQgPDwNCi9GMSA5IDAgUiANCj4+DQovUHJvY1NldCA4IDAgUg0KPj4NCi9NZWRpYUJveCBbMCAwIDYxMi4wMDAwIDc5Mi4wMDAwXQ0KL0NvbnRlbnRzIDcgMCBSDQo+Pg0KZW5kb2JqDQoNCjcgMCBvYmoNCjw8IC9MZW5ndGggNjc2ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBTaW1wbGUgUERGIEZpbGUgMiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIC4uLmNvbnRpbnVlZCBmcm9tIHBhZ2UgMS4gWWV0IG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NzYuNjU2MCBUZA0KKCBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY2NC43MDQwIFRkDQooIHRleHQuIE9oLCBob3cgYm9yaW5nIHR5cGluZyB0aGlzIHN0dWZmLiBCdXQgbm90IGFzIGJvcmluZyBhcyB3YXRjaGluZyApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY1Mi43NTIwIFRkDQooIHBhaW50IGRyeS4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NDAuODAwMCBUZA0KKCBCb3JpbmcuICBNb3JlLCBhIGxpdHRsZSBtb3JlIHRleHQuIFRoZSBlbmQsIGFuZCBqdXN0IGFzIHdlbGwuICkgVGoNCkVUDQplbmRzdHJlYW0NCmVuZG9iag0KDQo4IDAgb2JqDQpbL1BERiAvVGV4dF0NCmVuZG9iag0KDQo5IDAgb2JqDQo8PA0KL1R5cGUgL0ZvbnQNCi9TdWJ0eXBlIC9UeXBlMQ0KL05hbWUgL0YxDQovQmFzZUZvbnQgL0hlbHZldGljYQ0KL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcNCj4+DQplbmRvYmoNCg0KMTAgMCBvYmoNCjw8DQovQ3JlYXRvciAoUmF2ZSBcKGh0dHA6Ly93d3cubmV2cm9uYS5jb20vcmF2ZVwpKQ0KL1Byb2R1Y2VyIChOZXZyb25hIERlc2lnbnMpDQovQ3JlYXRpb25EYXRlIChEOjIwMDYwMzAxMDcyODI2KQ0KPj4NCmVuZG9iag0KDQp4cmVmDQowIDExDQowMDAwMDAwMDAwIDY1NTM1IGYNCjAwMDAwMDAwMTkgMDAwMDAgbg0KMDAwMDAwMDA5MyAwMDAwMCBuDQowMDAwMDAwMTQ3IDAwMDAwIG4NCjAwMDAwMDAyMjIgMDAwMDAgbg0KMDAwMDAwMDM5MCAwMDAwMCBuDQowMDAwMDAxNTIyIDAwMDAwIG4NCjAwMDAwMDE2OTAgMDAwMDAgbg0KMDAwMDAwMjQyMyAwMDAwMCBuDQowMDAwMDAyNDU2IDAwMDAwIG4NCjAwMDAwMDI1NzQgMDAwMDAgbg0KDQp0cmFpbGVyDQo8PA0KL1NpemUgMTENCi9Sb290IDEgMCBSDQovSW5mbyAxMCAwIFINCj4+DQoNCnN0YXJ0eHJlZg0KMjcxNA0KJSVFT0YNCg==",
+            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoN",
             "created_at": "2019-01-09T17:36:39.000Z",
             "updated_at": "2019-01-09T17:36:39.000Z"
         }
     ]
 }
 ```
+
+**400** ```Not found```
+
+**500** ```Erro interno no servidor```
+
+**GET** /internship/process/info/{idStudent}
+---
+Exibe dados do processo, organização e documento de acordo com o id do processo
+
+Exibe todos dados dos processos, organizações e documentos de acordo com o id do processo cadastrado na base
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/info/1*
+
+###  Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+    "process": {
+        "id": 15,
+        "student_id": 10,
+        "user_id": 10,
+        "organization_id": 16,
+        "internship_process_type_id": 1,
+        "internship_responsible": "1",
+        "phone1": null,
+        "phone2": null,
+        "email_internship_responsible": null,
+        "accept_terms": null,
+        "approved_hours": null,
+        "status": 0,
+        "justification_rejection": null,
+        "created_at": "2019-01-09T17:36:31.000Z",
+        "updated_at": "2019-01-09T17:36:31.000Z"
+    },
+    "organization": [
+        {
+            "id": 16,
+            "organization_type_id": 1,
+            "document_number": "12345678901231",
+            "organization_name": "Teste",
+            "phone1": "12345677890",
+            "phone2": "",
+            "fax": "",
+            "street": "Rua Ituacu",
+            "street_number": 22,
+            "city": "São Paulo",
+            "state": "SP",
+            "zipcode": "08110110",
+            "created_at": "2019-01-08T16:04:21.000Z",
+            "updated_at": "2019-01-08T16:04:21.000Z"
+        }
+    ],
+    "document": [
+        {
+            "id": 7,
+            "internship_process_id": 15,
+            "document_type_id": 2,
+            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoN",
+            "created_at": "2019-01-09T17:36:39.000Z",
+            "updated_at": "2019-01-09T17:36:39.000Z"
+        }
+    ]
+}
+```
+
+**400** ```Not found```
 
 **500** ```Erro interno no servidor```
 
