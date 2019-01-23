@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       # student
-      get "student/:id/processes", to: "student#processes"
+      get "student/process/:id", to: "student#show_student_organization_process"
       get 'student/:id', to: 'student#show'
 
       # internship/process
