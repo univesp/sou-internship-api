@@ -1,0 +1,2 @@
+class Parentage < SgaDatabase
+end
