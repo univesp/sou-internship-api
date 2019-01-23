@@ -1,0 +1,2 @@
+class Telephone < SgaDatabase
+end
