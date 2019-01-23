@@ -1,0 +1,3 @@
+class CourseClass < SgaDatabase
+  
+end

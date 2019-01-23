@@ -1,0 +1,2 @@
+class Address < SgaDatabase
+end
