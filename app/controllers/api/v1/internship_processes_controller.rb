@@ -1,7 +1,7 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
   def index
-    processes = InternshipProcess.order('created_at ASC');
+    processes = InternshipProcess.order('created_at ASC')
     render json: {processes:processes},status: :ok
   end
 
@@ -37,12 +37,13 @@ class Api::V1::InternshipProcessesController < ApplicationController
   end
 
   def show_processes_by_student
-    internshipProcess = InternshipProcess.where(student_id: params[:student_id])
+    internshipProcess = InternshipProcess.joins(:internship_process_type, :organization).where(student_id: params[:student_id])
+    student = Student.select(:course_class_id, :id).find(params[:student_id])
+    employeeResponsible = EmployeeResponsibleClass.all().where(:course_class_id => student.course_class_id)
+    employee = Employee.select(:id, :name).where(:id => employeeResponsible[0].employ_id)
+    response = { :employee => employee, :internship_process => internshipProcess }
 
-    render :json => internshipProcess, 
-           :include => { :internship_process_type => {:only => :name}, 
-                         :organization => {:only => :organization_name}},
-           :except => [:updated_at], status: :ok
+    render :json => response, status: :ok
   end
   
   def show_documents_and_organization_by_process_id
@@ -54,7 +55,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
   end
 
   def show_student
-    student = Student.order('created_at ASC');
+    student = Student.order('created_at ASC')
     render json: {student:student}, status: :ok
   end
 
