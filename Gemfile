@@ -45,8 +45,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rack-attack'
-gem 'grape', '>= 0.10.0'
-gem 'pagy'
 gem 'will_paginate'
-gem 'kaminari'
-gem 'api-pagination'
