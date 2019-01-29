@@ -18,23 +18,17 @@ $ git clone https://github.com/robsonarruda1/sou-internship-api.git
 $ cd sou-internship-api
 ```
 
-**2**. Copie o arquivo .env.example se necessário edite
-```
-$ cp .env.example .env
-```
-
-**3**. Copie o arquivo .Gemfile.lock.example se possuir ruby em sua máquina basta rodar bundle
+**2**. Copie o arquivo .Gemfile.lock.example se possuir ruby em sua máquina basta rodar bundle
 ```
 $ cp Gemfile.lock.example Gemfile.lock
 ```
 
-**4**. Entre na pasta config e copie o arquivo secrets.yml.example, *é necessário editar este arquivo
+**3**. Entre na pasta config e copie o arquivo secrets.yml.example, *é necessário editar este arquivo
 ```
 $ cd config
 $ cp secrets.yml.example secrets.yml
 ```
-
-**5**. Inicie a aplicação
+**4**. Inicie a aplicação
 ```
 $ docker-compose up --build
 ```
@@ -58,42 +52,7 @@ $ docker-compose up --build
 
 ## Contribuindo
 
-Com o fork feito siga estes passos:
-
-**1**. Adicione o remoto univesp
-```
-$ git remote add upstream https://github.com/univesp/sou-internship-api.git
-```
-* Após este passo você deverá possuir dois remotos
-
-Exemplo:
-```
-$ git remote -v
-    origin	https://github.com/robsonarruda1/sou-internship-api.git (fetch)
-    origin	https://github.com/robsonarruda1/sou-internship-api.git (push)
-    upstream	https://github.com/univesp/sou-internship-api.git (fetch)
-    upstream	https://github.com/univesp/sou-internship-api.git (push)
-```
-
-**2**. Atualize as referências dos remotos
-```
-$ git fetch --all
-```
-
-**3**. Mantenha sua branch devel sempre atualizada com o upstrem
-```
-$ git merge upstream/devel
-```
-* Lembre-se você deve estar na branch devel localmente
-
-**4**. Alterações feitas, comite e envie para seu repositório
-```
-$ git push origin HEAD
-```
-
-**5**. Pull Request
-
-No github clique em 'New Pull Request', selecione a branch devel do seu repositório e a devel do repositório da univesp, pronto seu código será analisado e poderá ser aprovado ou comentado para correções.
+Acesse o arquivo **[contributing](https://github.com/univesp/sou-internship-api/blob/devel/contributing.md)**
 
 ## Construído com
 
