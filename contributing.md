@@ -1,4 +1,3 @@
-#Contribuindo
 # Contributing
 
 Para contribuir com este projeto siga os passos descritos abaixo:
