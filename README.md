@@ -52,7 +52,7 @@ $ docker-compose up --build
 
 ## Contribuindo
 
-Acesse o arquivo **[contributing](https://github.com/univesp/sou-internship-api/blob/devel/contributing.md)**
+Acesse o arquivo **[contributing](https://github.com/univesp/sou-internship-api/blob/devel/contributing.md)** para obter informações de como contribuir com o projeto.
 
 ## Construído com
 
