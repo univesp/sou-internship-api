@@ -25,4 +25,5 @@ class InternshipProcess < ApplicationRecord
 
   has_many :internship_process_histories
   has_many :internship_documents
+  has_many :employee
 end
