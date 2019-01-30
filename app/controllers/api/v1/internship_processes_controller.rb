@@ -37,12 +37,14 @@ class Api::V1::InternshipProcessesController < ApplicationController
   end
 
   def show_processes_by_student
-    internshipProcess = InternshipProcess.joins(:internship_process_type, :organization).where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
-    student = Student.select(:course_class_id, :id).find(params[:student_id])
-    employeeResponsible = EmployeeResponsibleClass.all().where(:course_class_id => student.course_class_id)
-    employee = Employee.select(:id, :name).where(:id => employeeResponsible[0].employ_id)
-    response = { :internship_process => internshipProcess, :employe => employee }
-    render :json => response, status: :ok
+    internshipProcess = InternshipProcess.where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
+
+    render :json => internshipProcess, 
+      :include => {
+        :internship_process_type => {:only => :name}, 
+        :organization => {:only => :organization_name},
+        :employee => {:only => :name}
+      }, status: :ok
   end
   
   def show_documents_and_organization_by_process_id
