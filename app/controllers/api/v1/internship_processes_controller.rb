@@ -1,7 +1,7 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
   def index
-    processes = InternshipProcess.order('created_at ASC')
+    processes = InternshipProcess.order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
     render json: {processes:processes},status: :ok
   end
 
@@ -39,9 +39,9 @@ class Api::V1::InternshipProcessesController < ApplicationController
   def show_processes_by_student
     internshipProcess = InternshipProcess.where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
 
-    render :json => internshipProcess, 
+    render :json => internshipProcess,
       :include => {
-        :internship_process_type => {:only => :name}, 
+        :internship_process_type => {:only => :name},
         :organization => {:only => :organization_name},
         :employee => {:only => :name}
       }, status: :ok
@@ -58,6 +58,14 @@ class Api::V1::InternshipProcessesController < ApplicationController
   def show_student
     student = Student.order('created_at ASC').paginate(:page => params[:page], :per_page => 15)
     render json: {student:student}, status: :ok
+  end
+
+  def show_process_with_student_and_course
+    internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
+    student = Student.select(:id, :course_class_id, :name, :academic_register).paginate(:page => params[:page], :per_page => 10)
+    klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[3].course_class_id)
+    course = Course.select(:id, :name).where(:id => klass[0].course_id)
+    render json: {process:internshipProcess, student:student, courseClass:klass, course:course}, status: :ok 
   end
 
   private
