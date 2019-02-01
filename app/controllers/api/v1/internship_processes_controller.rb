@@ -38,6 +38,8 @@ class Api::V1::InternshipProcessesController < ApplicationController
 
   def show_processes_by_student
     internshipProcess = InternshipProcess.where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
+    @count = [internshipProcess.count()]
+    internshipProcess += @count
 
     render :json => internshipProcess,
       :include => {
