@@ -57,11 +57,6 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render json: {process:process,organization:organization,document:document},status: :ok
   end
 
-  def show_student
-    student = Student.order('created_at ASC').paginate(:page => params[:page], :per_page => 15)
-    render json: {student:student}, status: :ok
-  end
-
   def show_process_with_student_and_course
     internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
     student = Student.select(:id, :course_class_id, :name, :academic_register).paginate(:page => params[:page], :per_page => 10)

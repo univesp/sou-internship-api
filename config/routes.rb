@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       # student
       get "student/process/:id", to: "student#show_student_organization_process"
-      get 'student/:id', to: 'student#show'
+      get 'student', to: 'student#show'
+      get 'student/:id', to: 'student#show_student'
 
       # internship/process
       get 'internship/process', to: 'internship_processes#index'
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
       patch 'internship/document/:id', to: "internship_document#update"
       put 'internship/document/:id', to: "internship_document#update"
       delete 'internship/document/:id', to: "internship_document#destroy"
-      get 'student', to: 'internship_processes#show_student'
 
       # get 'grantor/:id',  to: 'grantor#reset',
       resources :grantor, :professor, :responsible, :advisor, :process, :organization
