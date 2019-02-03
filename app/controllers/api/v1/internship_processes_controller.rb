@@ -79,7 +79,8 @@ class Api::V1::InternshipProcessesController < ApplicationController
         end
       end
     end
-    render json: {process:@process}, status: :ok
+    count = internshipProcess.count()
+    render json: {process:@process,count:count}, status: :ok
   end
 
   private
