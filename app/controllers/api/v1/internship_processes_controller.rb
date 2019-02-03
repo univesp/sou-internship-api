@@ -58,11 +58,28 @@ class Api::V1::InternshipProcessesController < ApplicationController
   end
 
   def show_process_with_student_and_course
+    @process = []
+    @students = []
     internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
-    student = Student.select(:id, :course_class_id, :name, :academic_register).paginate(:page => params[:page], :per_page => 10)
-    klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[3].course_class_id)
-    course = Course.select(:id, :name).where(:id => klass[0].course_id)
-    render json: {process:internshipProcess, student:student, courseClass:klass, course:course}, status: :ok 
+    student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).paginate(:page => params[:page], :per_page => 50)
+    klass = CourseClass.select(:id, :year_entry, :semester, :course_id)
+    course = Course.select(:id, :name)
+    internshipProcess.each do |process|
+      @process +=  [process]
+      student.each do |student|
+        @students += [student]
+        klass.each do |klass|
+          course.each do |course|
+            if process.student_id == student.id && student.course_class_id == klass.id && klass.course_id == course.id
+              @process += [student:student]
+              @process += [courseClass:klass]
+              @process += [course:course]
+            end
+          end
+        end
+      end
+    end
+    render json: {process:@process}, status: :ok
   end
 
   private
