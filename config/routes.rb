@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       get 'student/:id', to: 'student#show_student'
 
       # internship/process
-      # get 'internship/process', to: 'internship_processes#index'
       get 'internship/process/:id', to: 'internship_processes#show'
       post 'internship/process', to: 'internship_processes#create'
       patch 'internship/process/:id', to: 'internship_processes#update'

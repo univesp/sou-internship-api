@@ -1,10 +1,5 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
-  def index
-    processes = InternshipProcess.order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
-    render json: {processes:processes},status: :ok
-  end
-
   def show 
     process = InternshipProcess.find(params[:id])
     render json: {process:process},status: :ok
