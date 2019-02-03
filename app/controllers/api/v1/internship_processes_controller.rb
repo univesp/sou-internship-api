@@ -1,10 +1,5 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
-  def index
-    processes = InternshipProcess.order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
-    render json: {processes:processes},status: :ok
-  end
-
   def show 
     process = InternshipProcess.find(params[:id])
     render json: {process:process},status: :ok
@@ -57,17 +52,28 @@ class Api::V1::InternshipProcessesController < ApplicationController
     render json: {process:process,organization:organization,document:document},status: :ok
   end
 
-  def show_student
-    student = Student.order('created_at ASC').paginate(:page => params[:page], :per_page => 15)
-    render json: {student:student}, status: :ok
-  end
-
   def show_process_with_student_and_course
+    @process = []
+    @students = []
     internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
-    student = Student.select(:id, :course_class_id, :name, :academic_register).paginate(:page => params[:page], :per_page => 10)
-    klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[3].course_class_id)
-    course = Course.select(:id, :name).where(:id => klass[0].course_id)
-    render json: {process:internshipProcess, student:student, courseClass:klass, course:course}, status: :ok 
+    student = Student.select(:id, :course_class_id, :name, :academic_register, :gender)
+    klass = CourseClass.select(:id, :year_entry, :semester, :course_id)
+    course = Course.select(:id, :name)
+    internshipProcess.each do |process|
+      @process +=  [process]
+      student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).where(:id => process.student_id)
+      student.each do |student|
+        klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student.course_class_id)
+        klass.each do |klass|
+          course = Course.select(:id, :name).where(:id => klass.course_id)
+          @process += [student:student]
+          @process += [courseClass:klass]
+          @process += [course:course]
+        end
+      end
+    end
+    count = internshipProcess.count()
+    render json: {process:@process,count:count}, status: :ok
   end
 
   private
