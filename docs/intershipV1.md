@@ -15,6 +15,7 @@ Não é requerida autorização.
 
 HTTP requisição | Descrição | Exemplo
 ------------- | ------------- | -------------
+**GET** /student | Exibe os estudantes | *http://localhost:3001/api/v1/student*
 **GET** /student/{id} | Exibe o estudante pelo id | *http://localhost:3001/api/v1/student/1*
 **GET** /student/process/{id} | Exibe os processos do estudante pelo id | *http://localhost:3001/api/v1/student/process/{id}*
 **GET** /grantor | Exibe todos concedentes | *http://localhost:3001/api/v1/grantor*
@@ -47,6 +48,115 @@ HTTP requisição | Descrição | Exemplo
 **PUT** /internship/document/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
 **GET** /internship/process/{id}/organization/document/| Exibe dados do processo, organização e documento de acordo com o id do processo| *http://localhost:3001/api/v1/internship/process/{id}/organization/document*
 ## Student
+
+**GET** /student
+---
+Exibe os estudantes
+
+Exibe os estudantes cadastrados na base de dados com retorno de 15 registros por página.
+
+### Parâmetros
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **page** | **Query string** | requerido no PATH | *http://localhost:3001/api/v1/student?page=2*
+
+### Status Code
+
+**200** ```OK```
+
+### Exemplo de resposta
+```json
+{
+    "student": [
+        {
+            "id": 66304,
+            "course_class_id": 1340,
+            "ethnicity_id": null,
+            "marital_status_id": null,
+            "countriy_id": null,
+            "address_id": 895,
+            "city_id": null,
+            "name": "Maria Silva",
+            "last_name": null,
+            "cpf": "0000000000",
+            "academic_register": 18417,
+            "birth_date": "1962-11-13",
+            "flag_on": 1,
+            "blood_type": null,
+            "organ_donor": null,
+            "assumed_name": null,
+            "gender": "F",
+            "students_type": "regular",
+            "current_status": "enrolled",
+            "flag_pwd": 0,
+            "flag_blindness": 0,
+            "flag_vision_impairment": 0,
+            "flag_deafness": 0,
+            "flag_hearing": 0,
+            "flag_physical_disability": 0,
+            "flag_deafblindness": 0,
+            "flag_multiple": 0,
+            "flag_intellectual": 0,
+            "flag_autism": 0,
+            "flag_asperger": 0,
+            "flag_rett": 0,
+            "flag_childhood_disintegrative_disease": 0,
+            "flag_giftedness": 0,
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null,
+            "flag_ppi": 0,
+            "id_legacy": 46497
+        },
+        {
+            "id": 66560,
+            "course_class_id": 1342,
+            "ethnicity_id": null,
+            "marital_status_id": null,
+            "countriy_id": null,
+            "address_id": 1151,
+            "city_id": null,
+            "name": "Gyselle Silva Silva",
+            "last_name": null,
+            "cpf": "12547856521",
+            "academic_register": 18795,
+            "birth_date": "1967-10-14",
+            "flag_on": 1,
+            "blood_type": null,
+            "organ_donor": "0",
+            "assumed_name": null,
+            "gender": "F",
+            "students_type": "regular",
+            "current_status": "enrolled",
+            "flag_pwd": 0,
+            "flag_blindness": 0,
+            "flag_vision_impairment": 0,
+            "flag_deafness": 0,
+            "flag_hearing": 0,
+            "flag_physical_disability": 0,
+            "flag_deafblindness": 0,
+            "flag_multiple": 0,
+            "flag_intellectual": 0,
+            "flag_autism": 0,
+            "flag_asperger": 0,
+            "flag_rett": 0,
+            "flag_childhood_disintegrative_disease": 0,
+            "flag_giftedness": 0,
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null,
+            "flag_ppi": 0,
+            "id_legacy": 28855
+        },
+    ],
+    "count": 58454
+}
+```
+**404** ```Not Found```
+
+**500** ```Erro interno no servidor```
+
 
 **GET** /student/{id}
 ---
@@ -1163,7 +1273,11 @@ Nome | Tipo | Descrição | Exemplo
 ---
 Exibe os processos de estágio
 
-Exibe todos os processos de estágio cadastradas na base
+Exibe todos os processos de estágio cadastradas na base com os dados do aluno e curso, com contagem de todos processos para paginação.
+
+Nome | Tipo | Descrição | Exemplo
+------------- | ------------- | ------------- | -------------
+ **page** | **Query string** | requerido no PATH | *http://localhost:3001/api/v1/internship/process?page=2*
 
 ###  Status Code
 
@@ -1172,42 +1286,66 @@ Exibe todos os processos de estágio cadastradas na base
 ### Exemplo de resposta
 ```json
 {
-	"processes": [
-		{
-			"id": 2,
-			"student_id": 1,
-			"user_id": 1,
-			"organization_id": 11,
-			"internship_process_type_id": 1,
-			"internship_responsible": "1",
-			"phone1": null,
-			"phone2": null,
-			"email_internship_responsible": "teste@teste.com",
-			"accept_terms": 1,
-			"approved_hours": null,
-			"status": 0,
-			"created_at": "2018-12-28T15:58:15.000Z",
-			"updated_at": "2018-12-28T15:58:15.000Z",
-			"justification_rejection": null
-		},
-		{
-			"id": 1,
-			"student_id": 10,
-			"user_id": 10,
-			"organization_id": 13,
-			"internship_process_type_id": 1,
-			"internship_responsible": "1",
-			"phone1": "124244525",
-			"phone2": null,
-			"email_internship_responsible": "testei@teste.com",
-			"accept_terms": 1,
-			"approved_hours": 100,
-			"status": 0,
-			"created_at": "2018-12-28T13:42:06.000Z",
-			"updated_at": "2018-12-28T16:12:03.000Z",
-			"justification_rejection": null
-		}
-	]
+    "process": [
+        {
+            "id": 1,
+            "student_id": 65536,
+            "user_id": 10,
+            "organization_id": 9,
+            "internship_process_type_id": 1,
+            "internship_responsible": "1",
+            "phone1": "124244525",
+            "phone2": null,
+            "email_internship_responsible": "testei@teste.com",
+            "accept_terms": 1,
+            "approved_hours": 100,
+            "status": 0,
+            "justification_rejection": null,
+            "created_at": "2018-12-28T13:42:06.000Z",
+            "updated_at": "2019-01-21T16:34:58.000Z"
+        },
+        {
+            "student": {
+                "id": 65536,
+                "course_class_id": 474,
+                "name": "Aline Silva Silva",
+                "academic_register": 1713049,
+                "gender": "F"
+            }
+        },
+        {
+            "courseClass": {
+                "id": 474,
+                "course_id": 15,
+                "year_entry": "2017",
+                "semester": "2"
+            }
+        },
+        {
+            "course": {
+                "id": 15,
+                "name": "Pedagogia"
+            }
+        },
+        {
+            "id": 2,
+            "student_id": 2,
+            "user_id": 2,
+            "organization_id": 11,
+            "internship_process_type_id": 1,
+            "internship_responsible": "1",
+            "phone1": "124244525",
+            "phone2": "000000000",
+            "email_internship_responsible": "testei@teste.com",
+            "accept_terms": 1,
+            "approved_hours": null,
+            "status": 0,
+            "justification_rejection": "Não possui documento tal",
+            "created_at": "2018-12-28T15:58:15.000Z",
+            "updated_at": "2018-12-28T16:33:36.000Z"
+        },
+    ],
+    "count": 24
 }
 ```
 
@@ -1555,75 +1693,6 @@ Exibe todos dados dos processos, organizações e documentos de acordo com o id 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/10/organization/document*
-
-###  Status Code
-
-**200** ```OK```
-
-### Exemplo de resposta
-```json
-{
-    "process": {
-        "id": 15,
-        "student_id": 10,
-        "user_id": 10,
-        "organization_id": 16,
-        "internship_process_type_id": 1,
-        "internship_responsible": "1",
-        "phone1": null,
-        "phone2": null,
-        "email_internship_responsible": null,
-        "accept_terms": null,
-        "approved_hours": null,
-        "status": 0,
-        "justification_rejection": null,
-        "created_at": "2019-01-09T17:36:31.000Z",
-        "updated_at": "2019-01-09T17:36:31.000Z"
-    },
-    "organization": [
-        {
-            "id": 16,
-            "organization_type_id": 1,
-            "document_number": "12345678901231",
-            "organization_name": "Teste",
-            "phone1": "12345677890",
-            "phone2": "",
-            "fax": "",
-            "street": "Rua Ituacu",
-            "street_number": 22,
-            "city": "São Paulo",
-            "state": "SP",
-            "zipcode": "08110110",
-            "created_at": "2019-01-08T16:04:21.000Z",
-            "updated_at": "2019-01-08T16:04:21.000Z"
-        }
-    ],
-    "document": [
-        {
-            "id": 7,
-            "internship_process_id": 15,
-            "document_type_id": 2,
-            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoN",
-            "created_at": "2019-01-09T17:36:39.000Z",
-            "updated_at": "2019-01-09T17:36:39.000Z"
-        }
-    ]
-}
-```
-
-**400** ```Not found```
-
-**500** ```Erro interno no servidor```
-
-**GET** /internship/process/info/{idStudent}
----
-Exibe dados do processo, organização e documento de acordo com o id do processo
-
-Exibe todos dados dos processos, organizações e documentos de acordo com o id do processo cadastrado na base
-
-Nome | Tipo | Descrição | Exemplo
-------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/info/1*
 
 ###  Status Code
 
