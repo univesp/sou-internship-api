@@ -1,5 +1,5 @@
 class Api::V1::InternshipProcessesController < ApplicationController
-    
+
   def show 
     process = InternshipProcess.find(params[:id])
     render json: {process:process},status: :ok
@@ -35,7 +35,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
     internshipProcess = InternshipProcess.where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
     @count = [internshipProcess.count()]
     internshipProcess += @count
-
+    
     render :json => internshipProcess,
       :include => {
         :internship_process_type => {:only => :name},
