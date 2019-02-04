@@ -1,8 +1,9 @@
 class Api::V1::InternshipProcessesController < ApplicationController
     
   def index
-    processes = InternshipProcess.order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
-    render json: {processes:processes},status: :ok
+    student = Student.select(:name, :id).where('name like ?', "%#{ params[:search] }%").paginate(:page => params[:page], :per_page => 10)
+    processes = InternshipProcess.where(status: params[:status]).order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
+    render json: {processes: processes, student: student },status: :ok
   end
 
   def show 
@@ -40,7 +41,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
     internshipProcess = InternshipProcess.where(student_id: params[:student_id]).paginate(:page => params[:page], :per_page => 5)
     @count = [internshipProcess.count()]
     internshipProcess += @count
-
+    
     render :json => internshipProcess,
       :include => {
         :internship_process_type => {:only => :name},
