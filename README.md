@@ -4,11 +4,7 @@
 
 Antes de rodar o projeto é necessário que você tenha instalado na sua máquina o * **[Docker](https://www.docker.com/) (docker compose)** - Para instalar o docker, [consulte a documentação oficial](https://docs.docker.com/engine/installation/) de acordo com seu sistema operacional.
 
-## Instalando
-
-Faça o fork do projeto em [UNIVESP](https://github.com/univesp/sou-internship-api)
-
-### Desenvolvimento
+## Desenvolvimento
 
 Após os passos descritos acima:
 
@@ -28,6 +24,7 @@ $ cp Gemfile.lock.example Gemfile.lock
 $ cd config
 $ cp secrets.yml.example secrets.yml
 ```
+
 **4**. Inicie a aplicação
 ```
 $ docker-compose up --build
@@ -52,7 +49,7 @@ $ docker-compose up --build
 
 ## Contribuindo
 
-Acesse o arquivo **[contributing](https://github.com/univesp/sou-internship-api/blob/devel/contributing.md)** para obter informações de como contribuir com o projeto.
+Acesse o arquivo **[CONTRIBUTING](https://github.com/univesp/sou-internship-api/blob/devel/contributing.md)** para obter informações de como contribuir com o projeto.
 
 ## Construído com
 

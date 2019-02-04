@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       # student
       get "student/process/:id", to: "student#show_student_organization_process"
-      get 'student/:id', to: 'student#show'
+      get 'student', to: 'student#show'
+      get 'student/:id', to: 'student#show_student'
 
       # internship/process
-      get 'internship/process', to: 'internship_processes#index'
       get 'internship/process/:id', to: 'internship_processes#show'
       post 'internship/process', to: 'internship_processes#create'
       patch 'internship/process/:id', to: 'internship_processes#update'
@@ -15,7 +15,8 @@ Rails.application.routes.draw do
       delete 'internship/process/:id', to: 'internship_processes#destroy'
       get 'internship/process/:id/organization/document', to: 'internship_processes#show_documents_and_organization_by_process_id'
       get 'internship/process/student/:student_id', to: 'internship_processes#show_processes_by_student'
-      get 'info/internship/process', to: 'internship_processes#show_process_with_student_and_course'
+      get 'internship/process', to: 'internship_processes#show_process_with_student_and_course'
+
       # internship/document
       get 'internship/documents', to: "internship_document#index"
       get 'internship/document/:id', to: "internship_document#show"
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
       patch 'internship/document/:id', to: "internship_document#update"
       put 'internship/document/:id', to: "internship_document#update"
       delete 'internship/document/:id', to: "internship_document#destroy"
-      get 'student', to: 'internship_processes#show_student'
 
       # get 'grantor/:id',  to: 'grantor#reset',
       resources :grantor, :professor, :responsible, :advisor, :process, :organization

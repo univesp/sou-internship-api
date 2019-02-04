@@ -22,7 +22,7 @@ class Api::V1::StudentController < ApplicationController
     render json: {process:process,course:course,student:student,address:address,identity:identity,identityEmissor:identityEmissor,mother:mother,father:father,country:country,city:city,telephone:telephone, email:email, organization:organization, document:document}, status: :ok
   end
 
-  def show
+  def show_student
     student = Student.select(:city_id,:address_id,:countriy_id,:name, :last_name, :id, :birth_date, :course_class_id, :assumed_name, :cpf).find(params[:id])
     courseClass = CourseClass.where(:id => student.course_class_id)
     parents = StudentXParentage.where(:student_id => student.id)
@@ -40,5 +40,11 @@ class Api::V1::StudentController < ApplicationController
     email = Email.select(:id,:email).where(:id => mail[0].email_id)
     city = City.select(:name,:id).where(:id => student.city_id)
     render json: {course:course,student:student,address:address,identity:identity,identityEmissor:identityEmissor,mother:mother,father:father,country:country,city:city,telephone:telephone, email:email}, status: :ok
+  end
+
+  def show
+    student = Student.order('created_at ASC').paginate(:page => params[:page], :per_page => 15)
+    count = student.count()
+    render json: {student:student, count:count}, status: :ok
   end
 end
