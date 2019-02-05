@@ -1,10 +1,5 @@
 class Api::V1::InternshipProcessesController < ApplicationController
 
-  def show 
-    process = InternshipProcess.find(params[:id])
-    render json: {process:process},status: :ok
-  end
-
   def create
     process = InternshipProcess.new(process_params)
 
@@ -48,8 +43,11 @@ class Api::V1::InternshipProcessesController < ApplicationController
     process = InternshipProcess.find(params[:id])
     organization = Organization.where(:id => process.organization_id)
     document = InternshipDocument.where(:internship_process_id => process.id)
-
-    render json: {process:process,organization:organization,document:document},status: :ok
+    student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).where(:id => process.student_id)
+    klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[0].course_class_id)
+    course = Course.select(:id, :name).where(:id => klass[0].course_id)
+    
+    render json: {process:process,organization:organization,document:document,student:student,course:course},status: :ok
   end
 
   def show_process_with_student_and_course

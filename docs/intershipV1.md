@@ -1353,9 +1353,9 @@ Nome | Tipo | Descrição | Exemplo
 
 **GET** /internship/process/{id}
 ---
-Exibe o processo de estágio
+Exibe dados do processo, organização e documento de acordo com o id do processo
 
-Exibe o processo de estágio cadastrada na base pelo id
+Exibe todos dados dos processos, organizações e documentos de acordo com o id do processo cadastrado na base
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
@@ -1368,27 +1368,77 @@ Nome | Tipo | Descrição | Exemplo
 ### Exemplo de resposta
 ```json
 {
-	"process": {
-		"id": 1,
-		"student_id": 10,
-		"user_id": 10,
-		"organization_id": 13,
-		"internship_process_type_id": 1,
-		"internship_responsible": "1",
-		"phone1": "124244525",
-		"phone2": null,
-		"email_internship_responsible": "testei@teste.com",
-		"accept_terms": 1,
-		"approved_hours": 100,
-		"status": 0,
-		"created_at": "2018-12-28T13:42:06.000Z",
-		"updated_at": "2018-12-28T16:12:03.000Z",
-		"justification_rejection": null
-	}
+    "process": {
+        "id": 1,
+        "student_id": 655,
+        "user_id": 10,
+        "organization_id": 9,
+        "internship_process_type_id": 1,
+        "internship_responsible": "1",
+        "phone1": "124244525",
+        "phone2": null,
+        "email_internship_responsible": "testei@teste.com",
+        "accept_terms": 1,
+        "approved_hours": 100,
+        "status": 0,
+        "justification_rejection": null,
+        "other_course": null,
+        "other_discipline": null,
+        "semester": null,
+        "year": null,
+        "taught_discipline": null,
+        "date_start": null,
+        "date_end": null,
+        "created_at": "2018-12-28T13:42:06.000Z",
+        "updated_at": "2019-01-21T16:34:58.000Z"
+    },
+    "organization": [
+        {
+            "id": 9,
+            "organization_type_id": 2,
+            "document_number": "12345678910",
+            "organization_name": "Bolinha",
+            "phone1": null,
+            "phone2": null,
+            "fax": null,
+            "street": "Rua a do lado b",
+            "street_number": 20,
+            "city": "São Paulo",
+            "state": "SP",
+            "zipcode": "04312898",
+            "created_at": "2018-12-27T11:40:53.000Z",
+            "updated_at": "2018-12-27T18:47:44.000Z"
+        }
+    ],
+    "document": [
+        {
+            "id": 1,
+            "internship_process_id": 1,
+            "document_type_id": 1,
+            "attachment": "skvdnsjiovnsdfovfbvlbvg,mfdhbglmbc",
+            "created_at": "2019-01-04T16:15:16.000Z",
+            "updated_at": "2019-01-04T16:15:16.000Z"
+        }
+    ],
+    "student": [
+        {
+            "id": 655,
+            "course_class_id": 474,
+            "name": "Aline Silva de Nata",
+            "academic_register": 748545,
+            "gender": "F"
+        }
+    ],
+    "course": [
+        {
+            "id": 15,
+            "name": "Pedagogia"
+        }
+    ]
 }
 ```
 
-**404** ```Not Found```
+**400** ```Not found```
 
 **500** ```Erro interno no servidor```
 
@@ -1681,75 +1731,6 @@ Nome | Tipo | Descrição | Exemplo
 	]
 }
 ```
-
-**500** ```Erro interno no servidor```
-
-**GET** /internship/process/{id}/organization/document
----
-Exibe dados do processo, organização e documento de acordo com o id do processo
-
-Exibe todos dados dos processos, organizações e documentos de acordo com o id do processo cadastrado na base
-
-Nome | Tipo | Descrição | Exemplo
-------------- | ------------- | ------------- | -------------
- **id** | **Integer** | requerido no PATH | *http://localhost:3001/api/v1/internship/process/10/organization/document*
-
-###  Status Code
-
-**200** ```OK```
-
-### Exemplo de resposta
-```json
-{
-    "process": {
-        "id": 15,
-        "student_id": 10,
-        "user_id": 10,
-        "organization_id": 16,
-        "internship_process_type_id": 1,
-        "internship_responsible": "1",
-        "phone1": null,
-        "phone2": null,
-        "email_internship_responsible": null,
-        "accept_terms": null,
-        "approved_hours": null,
-        "status": 0,
-        "justification_rejection": null,
-        "created_at": "2019-01-09T17:36:31.000Z",
-        "updated_at": "2019-01-09T17:36:31.000Z"
-    },
-    "organization": [
-        {
-            "id": 16,
-            "organization_type_id": 1,
-            "document_number": "12345678901231",
-            "organization_name": "Teste",
-            "phone1": "12345677890",
-            "phone2": "",
-            "fax": "",
-            "street": "Rua Ituacu",
-            "street_number": 22,
-            "city": "São Paulo",
-            "state": "SP",
-            "zipcode": "08110110",
-            "created_at": "2019-01-08T16:04:21.000Z",
-            "updated_at": "2019-01-08T16:04:21.000Z"
-        }
-    ],
-    "document": [
-        {
-            "id": 7,
-            "internship_process_id": 15,
-            "document_type_id": 2,
-            "attachment": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoN",
-            "created_at": "2019-01-09T17:36:39.000Z",
-            "updated_at": "2019-01-09T17:36:39.000Z"
-        }
-    ]
-}
-```
-
-**400** ```Not found```
 
 **500** ```Erro interno no servidor```
 
