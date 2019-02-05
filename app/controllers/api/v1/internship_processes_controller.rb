@@ -45,7 +45,7 @@ class Api::V1::InternshipProcessesController < ApplicationController
     document = InternshipDocument.where(:internship_process_id => process.id)
     student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).where(:id => process.student_id)
     klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[0].course_class_id)
-    course = Course.select(:id, :name).where(:id => klass[0].course_id)
+    course = Course.where(:id => klass[0].course_id)
     
     render json: {process:process,organization:organization,document:document,student:student,course:course},status: :ok
   end
@@ -53,13 +53,10 @@ class Api::V1::InternshipProcessesController < ApplicationController
   def show_process_with_student_and_course
     @process = []
     @students = []
-    count = []
     internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
     student = Student.select(:id, :course_class_id, :name, :academic_register, :gender)
     klass = CourseClass.select(:id, :year_entry, :semester, :course_id)
     course = Course.select(:id, :name)
-    searchStudent = Student.select(:name, :id).where('name like ?', "%#{ params[:search] }%").paginate(:page => params[:page], :per_page => 10)
-    searchProcessStatus = InternshipProcess.select(:status, :id).where(status: params[:status]).order('created_at ASC').paginate(:page => params[:page], :per_page => 10)
     internshipProcess.each do |process|
       @process +=  [process]
       student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).where(:id => process.student_id)
@@ -73,10 +70,25 @@ class Api::V1::InternshipProcessesController < ApplicationController
         end
       end
     end
-    count += [countProcess:internshipProcess.count()]
-    count += [countProcess:searchStudent.count()]
-    count += [countProcess:searchProcessStatus.count()]
-    render json: {process:@process,searchStudent:searchStudent,searchProcessStatus:searchProcessStatus,count:count}, status: :ok
+    count = {countProcess:internshipProcess.count()}
+
+    render json: {process:@process,count:count}, status: :ok
+  end
+
+  def show_process_by_search
+    @process = []
+    internshipProcess = InternshipProcess.all().paginate(:page => params[:page], :per_page => 10)
+    student = Student.select(:id, :course_class_id, :name, :academic_register, :gender)
+    klass = CourseClass.select(:id, :year_entry, :semester, :course_id)
+    course = Course.select(:id, :name)
+    internshipProcess.each do |process|
+      @process +=  [process]
+      student = Student.select(:id, :course_class_id, :name, :academic_register, :gender).where(:id => process.student_id)
+      @process += [student:student]
+    end
+    count = {countProcess:internshipProcess.count()}
+
+    render json: {process:@process,count:count}, status: :ok
   end
 
   private

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'internship/process/:id', to: 'internship_processes#show_documents_and_organization_by_process_id'
       get 'internship/process/student/:student_id', to: 'internship_processes#show_processes_by_student'
       get 'internship/process', to: 'internship_processes#show_process_with_student_and_course'
+      get 'demand/internship/process', to: 'internship_processes#show_process_by_search' 
 
       # internship/document
       get 'internship/documents', to: "internship_document#index"
