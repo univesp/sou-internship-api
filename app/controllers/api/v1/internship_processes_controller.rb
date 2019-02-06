@@ -45,12 +45,13 @@ class Api::V1::InternshipProcessesController < ApplicationController
     document = InternshipDocument.where(:internship_process_id => process.id)
     student = Student.select(:id, :course_class_id, :name,:last_name, :gender, :birth_date, :cpf, :academic_register, :address_id, :city_id).where(:id => process.student_id) 
     address = Address.select(:id, :neighborhood, :street, :street_number, :zipcode, :street_complement, :state).where(:id => student[0].address_id) 
+    city = City.select(:id, :name, :state).where(:id => student[0].city_id)
     mail = StudentXEmail.where(:student_id => process.student_id)
     email = Email.select(:id,:email).where(:id => mail[0].email_id)
     klass = CourseClass.select(:id, :year_entry, :semester, :course_id).where(:id => student[0].course_class_id)
     course = Course.where(:id => klass[0].course_id)
     
-    render json: {process:process,organization:organization,document:document,student:student,course:course,address:address,email:email},status: :ok
+    render json: {process:process,organization:organization,document:document,student:student,course:course,address:address,email:email,city:city},status: :ok
   end
 
   def show_process_with_student_and_course
@@ -112,7 +113,9 @@ class Api::V1::InternshipProcessesController < ApplicationController
         :justification_rejection,
         :address,
         :address_id,
-        :email
+        :email,
+        :city,
+        :city_id
       )
     end
 end
