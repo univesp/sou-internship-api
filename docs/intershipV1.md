@@ -46,7 +46,7 @@ HTTP requisição | Descrição | Exemplo
 **DELETE** /internship/document/{id} | Exclui processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
 **PATCH** /internship/document/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
 **PUT** /internship/document/{id} | Atualiza processo de estágio pelo id | *http://localhost:3001/api/v1/internship/document/{id}*
-**GET** /internship/process/{id}/organization/document/| Exibe dados do processo, organização e documento de acordo com o id do processo| *http://localhost:3001/api/v1/internship/process/{id}/organization/document*
+**GET** /internship/process/{id}| Exibe dados do processo, organização,aluno e documento de acordo com o id do processo| *http://localhost:3001/api/v1/internship/process/{id}*
 ## Student
 
 **GET** /student
@@ -1353,9 +1353,9 @@ Nome | Tipo | Descrição | Exemplo
 
 **GET** /internship/process/{id}
 ---
-Exibe dados do processo, organização e documento de acordo com o id do processo
+Exibe dados do processo, organização, aluno e documento de acordo com o id do processo
 
-Exibe todos dados dos processos, organizações e documentos de acordo com o id do processo cadastrado na base
+Exibe todos dados dos processos, organizações, alunos e documentos de acordo com o id do processo cadastrado na base
 
 Nome | Tipo | Descrição | Exemplo
 ------------- | ------------- | ------------- | -------------
@@ -1370,7 +1370,7 @@ Nome | Tipo | Descrição | Exemplo
 {
     "process": {
         "id": 1,
-        "student_id": 655,
+        "student_id": 65536,
         "user_id": 10,
         "organization_id": 9,
         "internship_process_type_id": 1,
@@ -1415,24 +1415,58 @@ Nome | Tipo | Descrição | Exemplo
             "id": 1,
             "internship_process_id": 1,
             "document_type_id": 1,
-            "attachment": "skvdnsjiovnsdfovfbvlbvg,mfdhbglmbc",
+            "attachment": "1823981u3j1o2jo21knm3o12m30o21m31o230987210391203981023l",
             "created_at": "2019-01-04T16:15:16.000Z",
             "updated_at": "2019-01-04T16:15:16.000Z"
         }
     ],
     "student": [
         {
-            "id": 655,
+            "id": 65536,
             "course_class_id": 474,
-            "name": "Aline Silva de Nata",
-            "academic_register": 748545,
+            "address_id": 127,
+            "city_id": 1,
+            "name": "Aline Conceicao de Freitas",
+            "last_name": null,
+            "cpf": "36900409814",
+            "academic_register": 1713049,
+            "birth_date": "1988-08-25",
             "gender": "F"
         }
     ],
     "course": [
         {
             "id": 15,
-            "name": "Pedagogia"
+            "name": "Pedagogia",
+            "duration_semesters": "8",
+            "course_type": "Undergraduation",
+            "created_at": "2018-12-13T18:54:38.000Z",
+            "updated_at": null,
+            "deleted_at": null
+        }
+    ],
+    "address": [
+        {
+            "id": 127,
+            "neighborhood": "CENTRO",
+            "street": "rua espirito santo",
+            "street_number": "526",
+            "zipcode": "18700-060",
+            "street_complement": "casa",
+            "state": "SP"
+        }
+    ],
+    "email": [
+        {
+            "id": 1,
+            "email": "teste@teste.com"
+        }
+    ],
+    "city": [
+        {
+            "id": 1,
+            "name": "São Paulo",
+            "state": "SP"
         }
     ]
 }
